@@ -1757,12 +1757,12 @@ h6 {
     color: #f43f5e;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints & Device Layout Scaling */
 @media (max-width: 1024px) {
-
     .hero-container,
     .about-card-wrapper {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 
     .hero-stats-grid {
@@ -1772,11 +1772,12 @@ h6 {
 
     .stat-card {
         flex: 1;
-        min-width: 220px;
+        min-width: 200px;
     }
 
     .footer-container {
         grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 }
 
@@ -1786,12 +1787,13 @@ h6 {
         top: 75px;
         left: -100%;
         width: 100%;
-        background: #fff;
+        background: #ffffff;
         flex-direction: column;
         padding: 2rem;
         box-shadow: var(--shadow-lg);
         transition: var(--transition);
         border-bottom: 1px solid var(--border-color);
+        z-index: 99;
     }
 
     .nav-menu.active {
@@ -1803,7 +1805,42 @@ h6 {
     }
 
     .hero-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 1.5rem;
+    }
+
+    .complaints-grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: 1.5rem;
+    }
+
+    .tracker-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tracker-controls .search-box,
+    .tracker-controls .filter-box {
+        width: 100%;
     }
 
     .form-grid {
@@ -1815,7 +1852,7 @@ h6 {
     }
 
     .form-wrapper {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem;
     }
 
     .footer-container {
@@ -1830,6 +1867,56 @@ h6 {
     }
 
     .admin-body {
-        padding: 1.25rem;
+        padding: 1rem;
+    }
+
+    .admin-metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .admin-panel-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .admin-filters {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .modal-card {
+        width: 95%;
+        max-width: 95%;
+        padding: 1.5rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+        padding: 0 0.25rem;
+    }
+
+    .hero-section {
+        padding: 6.5rem 0 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .badge-pill {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .stat-card {
+        min-width: 100%;
+    }
+
+    .about-visual-card {
+        padding: 1.5rem 1.25rem;
     }
 }
