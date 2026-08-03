@@ -1086,3 +1086,12 @@ function setCurrentYear() {
     const yearEl = document.getElementById("currentYear");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
+
+
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.getElementById('navMenu');
+
+hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+});
+

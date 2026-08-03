@@ -252,99 +252,10 @@ h6 {
 }
 
 /* Header & Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-}
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
 
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.logo-icon {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
-    flex-shrink: 0;
-}
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-}
-
-.brand-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.08rem;
-    color: var(--dark-bg);
-    letter-spacing: -0.01em;
-}
-
-.brand-subtitle {
-    font-size: 0.66rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-}
-
-.nav-link {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover{
     color: var(--primary);
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.nav-user-group {
-    position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .user-account-btn {
@@ -455,15 +366,6 @@ h6 {
 .btn-logout:hover {
     background: #ef4444;
     color: #ffffff;
-}
-
-.hamburger-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
 }
 
 /* Hero Section */
@@ -1865,7 +1767,5 @@ h6 {
         z-index: 99;
     }
 
-    .nav-menu.active {
-        left: 0;
-    }
+  
 }
