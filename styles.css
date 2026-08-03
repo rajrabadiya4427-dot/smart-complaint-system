@@ -347,80 +347,81 @@ h6 {
     align-items: center;
 }
 
-.user-nav-badge {
-    position: relative;
-    display: flex;
+.user-account-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: #f1f5f9;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #eff6ff;
     color: var(--primary);
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
+    border: 1px solid #bfdbfe;
+    font-size: 1.35rem;
     cursor: pointer;
-    user-select: none;
     transition: var(--transition);
+    outline: none;
 }
 
-.user-nav-badge:hover {
-    background: #e2e8f0;
+.user-account-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
     transform: scale(1.05);
 }
 
-.user-nav-badge i {
-    color: var(--primary);
-    font-size: 1.4rem;
-}
-
-.user-nav-dropdown {
+/* Floating User Dropdown Menu */
+.user-dropdown-menu {
     display: none;
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
-    min-width: 240px;
+    min-width: 230px;
     background: #ffffff;
     color: var(--text-primary);
-    padding: 1rem;
+    padding: 0.85rem;
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
     border: 1px solid var(--border-color);
     z-index: 1001;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
-.user-nav-dropdown.show {
+.user-dropdown-menu.show {
     display: flex !important;
 }
 
-.dropdown-header {
+.dropdown-user-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    padding-bottom: 0.25rem;
 }
 
-.dropdown-header i {
+.dropdown-user-avatar {
     font-size: 1.75rem;
     color: var(--primary);
+    display: flex;
+    align-items: center;
 }
 
-.dropdown-user-details {
+.dropdown-user-info {
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-.dropdown-label {
-    font-size: 0.725rem;
+.dropdown-welcome {
+    font-size: 0.7rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
 
-.dropdown-username {
-    font-size: 0.9rem;
+.dropdown-name {
+    font-size: 0.875rem;
     color: var(--text-primary);
     font-weight: 700;
     white-space: nowrap;
@@ -431,7 +432,7 @@ h6 {
 .dropdown-divider {
     height: 1px;
     background: var(--border-color);
-    margin: 0.1rem 0;
+    margin: 0.15rem 0;
 }
 
 .btn-logout {
@@ -440,13 +441,13 @@ h6 {
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
-    padding: 0.6rem 1rem;
+    padding: 0.55rem 1rem;
     background: #fef2f2;
     color: #ef4444;
     border: 1px solid rgba(239, 68, 68, 0.2);
     border-radius: var(--radius-sm);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.825rem;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -1895,36 +1896,28 @@ h6 {
         display: block;
     }
 
-    /* Mobile Responsive User Badge & Dropdown */
-    .user-nav-badge {
-        padding: 0.4rem 0.6rem;
-    }
-
-    .user-nav-badge > #navUserName {
-        display: none !important;
-    }
-
-    .user-nav-dropdown {
+    .login-btn-text {
         display: none;
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 0;
-        background: #0f172a;
-        color: #ffffff;
-        padding: 0.5rem 0.85rem;
-        border-radius: var(--radius-md);
-        font-size: 0.825rem;
-        font-weight: 600;
-        white-space: nowrap;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        border: 1px solid #334155;
-        z-index: 1001;
-        align-items: center;
-        gap: 0.4rem;
     }
 
-    .user-nav-dropdown.show {
-        display: flex !important;
+    .btn-primary#loginModalTrigger {
+        padding: 0.55rem;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-account-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+
+    .nav-actions {
+        gap: 0.5rem;
     }
 
     .hero-title {

@@ -102,30 +102,32 @@
 
             <div class="nav-actions">
                 <div id="loggedOutNav" class="nav-login-group">
-                    <button class="btn btn-primary" id="loginModalTrigger">
+                    <button class="btn btn-primary" id="loginModalTrigger" title="Sign In">
                         <i class="fa-solid fa-right-to-bracket"></i>
-                        <span>Sign In / Login</span>
+                        <span class="login-btn-text">Sign In / Login</span>
                     </button>
                 </div>
                 <div id="loggedInNav" class="nav-user-group hidden">
-                    <div class="user-nav-badge" id="userNavBadge" title="User Menu">
+                    <button class="user-account-btn" id="userNavBadge" aria-label="User Menu" title="User Profile">
                         <i class="fa-solid fa-user-circle"></i>
-                        <div class="user-nav-dropdown" id="userNavDropdown">
-                            <div class="dropdown-header">
+                    </button>
+                    <div class="user-dropdown-menu" id="userNavDropdown">
+                        <div class="dropdown-user-header">
+                            <div class="dropdown-user-avatar">
                                 <i class="fa-solid fa-user-circle"></i>
-                                <div class="dropdown-user-details">
-                                    <span class="dropdown-label">Signed in as</span>
-                                    <strong id="dropdownUserName" class="dropdown-username">User</strong>
-                                </div>
                             </div>
-                            <div class="dropdown-divider"></div>
-                            <button class="btn btn-admin hidden" id="adminDashTrigger">
-                                <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
-                            </button>
-                            <button class="btn btn-logout" id="userLogoutBtn" title="Logout">
-                                <i class="fa-solid fa-power-off"></i> Logout
-                            </button>
+                            <div class="dropdown-user-info">
+                                <span class="dropdown-welcome">Signed in as</span>
+                                <strong id="dropdownUserName" class="dropdown-name">User</strong>
+                            </div>
                         </div>
+                        <div class="dropdown-divider"></div>
+                        <button class="btn btn-admin hidden" id="adminDashTrigger">
+                            <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
+                        </button>
+                        <button class="btn btn-logout" id="userLogoutBtn" title="Logout">
+                            <i class="fa-solid fa-power-off"></i> Logout
+                        </button>
                     </div>
                 </div>
                 <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
