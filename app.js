@@ -230,10 +230,7 @@ function checkSessionState() {
     if (currentUser) {
         if (loggedOutNav) loggedOutNav.classList.add("hidden");
         if (loggedInNav) loggedInNav.classList.remove("hidden");
-        const displayName = currentUser.name || currentUser.email;
-        if (navUserName) navUserName.textContent = displayName;
-        const dropdownUserName = document.getElementById("dropdownUserName");
-        if (dropdownUserName) dropdownUserName.textContent = displayName;
+        if (navUserName) navUserName.textContent = currentUser.name || currentUser.email;
 
         if (currentUser.email === "smartservice@gmail.com") {
             isAdminLoggedIn = true;
@@ -286,25 +283,6 @@ function setupEventListeners() {
     if (hamburgerBtn && navMenu) {
         hamburgerBtn.addEventListener("click", () => {
             navMenu.classList.toggle("active");
-        });
-    }
-
-    // User Icon Toggle Dropdown Menu
-    const userNavBadge = document.getElementById("userNavBadge");
-    const userNavDropdown = document.getElementById("userNavDropdown");
-
-    if (userNavBadge && userNavDropdown) {
-        userNavBadge.addEventListener("click", (e) => {
-            e.stopPropagation();
-            userNavDropdown.classList.toggle("show");
-        });
-
-        userNavDropdown.addEventListener("click", (e) => {
-            e.stopPropagation();
-        });
-
-        document.addEventListener("click", () => {
-            userNavDropdown.classList.remove("show");
         });
     }
 
@@ -371,7 +349,6 @@ function setupEventListeners() {
     const adminDashTrigger = document.getElementById("adminDashTrigger");
     if (adminDashTrigger) {
         adminDashTrigger.addEventListener("click", () => {
-            if (userNavDropdown) userNavDropdown.classList.remove("show");
             if (isAdminLoggedIn) {
                 showAdminDashboard();
             }
@@ -381,10 +358,7 @@ function setupEventListeners() {
     // User Logout
     const userLogoutBtn = document.getElementById("userLogoutBtn");
     if (userLogoutBtn) {
-        userLogoutBtn.addEventListener("click", () => {
-            if (userNavDropdown) userNavDropdown.classList.remove("show");
-            handleLogout();
-        });
+        userLogoutBtn.addEventListener("click", handleLogout);
     }
 
     // Admin Logout
@@ -1086,6 +1060,3 @@ function setCurrentYear() {
     const yearEl = document.getElementById("currentYear");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
-
-
-
