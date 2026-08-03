@@ -342,21 +342,20 @@ h6 {
 }
 
 .nav-user-group {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
 }
 
 .user-nav-badge {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.85rem;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     background: #f1f5f9;
-    color: var(--dark-bg);
-    font-weight: 700;
-    font-size: 0.85rem;
+    color: var(--primary);
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
     cursor: pointer;
@@ -364,13 +363,97 @@ h6 {
     transition: var(--transition);
 }
 
+.user-nav-badge:hover {
+    background: #e2e8f0;
+    transform: scale(1.05);
+}
+
 .user-nav-badge i {
     color: var(--primary);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .user-nav-dropdown {
     display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 240px;
+    background: #ffffff;
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    border: 1px solid var(--border-color);
+    z-index: 1001;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.user-nav-dropdown.show {
+    display: flex !important;
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dropdown-header i {
+    font-size: 1.75rem;
+    color: var(--primary);
+}
+
+.dropdown-user-details {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dropdown-label {
+    font-size: 0.725rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.dropdown-username {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.1rem 0;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background: #ef4444;
+    color: #ffffff;
 }
 
 .hamburger-btn {

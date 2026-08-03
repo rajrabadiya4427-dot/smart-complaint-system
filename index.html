@@ -108,19 +108,25 @@
                     </button>
                 </div>
                 <div id="loggedInNav" class="nav-user-group hidden">
-                    <div class="user-nav-badge" id="userNavBadge" title="User Profile">
+                    <div class="user-nav-badge" id="userNavBadge" title="User Menu">
                         <i class="fa-solid fa-user-circle"></i>
-                        <span id="navUserName">User</span>
                         <div class="user-nav-dropdown" id="userNavDropdown">
-                            <i class="fa-solid fa-user-check"></i> <span id="dropdownUserName">User</span>
+                            <div class="dropdown-header">
+                                <i class="fa-solid fa-user-circle"></i>
+                                <div class="dropdown-user-details">
+                                    <span class="dropdown-label">Signed in as</span>
+                                    <strong id="dropdownUserName" class="dropdown-username">User</strong>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <button class="btn btn-admin hidden" id="adminDashTrigger">
+                                <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
+                            </button>
+                            <button class="btn btn-logout" id="userLogoutBtn" title="Logout">
+                                <i class="fa-solid fa-power-off"></i> Logout
+                            </button>
                         </div>
                     </div>
-                    <button class="btn btn-admin hidden" id="adminDashTrigger">
-                        <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
-                    </button>
-                    <button class="btn btn-outline btn-sm" id="userLogoutBtn" title="Logout">
-                        <i class="fa-solid fa-power-off"></i>
-                    </button>
                 </div>
                 <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>

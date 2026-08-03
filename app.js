@@ -289,16 +289,18 @@ function setupEventListeners() {
         });
     }
 
-    // Mobile User Badge Icon Click Dropdown
+    // User Icon Toggle Dropdown Menu
     const userNavBadge = document.getElementById("userNavBadge");
     const userNavDropdown = document.getElementById("userNavDropdown");
 
     if (userNavBadge && userNavDropdown) {
         userNavBadge.addEventListener("click", (e) => {
-            if (window.innerWidth <= 768) {
-                e.stopPropagation();
-                userNavDropdown.classList.toggle("show");
-            }
+            e.stopPropagation();
+            userNavDropdown.classList.toggle("show");
+        });
+
+        userNavDropdown.addEventListener("click", (e) => {
+            e.stopPropagation();
         });
 
         document.addEventListener("click", () => {
@@ -369,6 +371,7 @@ function setupEventListeners() {
     const adminDashTrigger = document.getElementById("adminDashTrigger");
     if (adminDashTrigger) {
         adminDashTrigger.addEventListener("click", () => {
+            if (userNavDropdown) userNavDropdown.classList.remove("show");
             if (isAdminLoggedIn) {
                 showAdminDashboard();
             }
@@ -378,7 +381,10 @@ function setupEventListeners() {
     // User Logout
     const userLogoutBtn = document.getElementById("userLogoutBtn");
     if (userLogoutBtn) {
-        userLogoutBtn.addEventListener("click", handleLogout);
+        userLogoutBtn.addEventListener("click", () => {
+            if (userNavDropdown) userNavDropdown.classList.remove("show");
+            handleLogout();
+        });
     }
 
     // Admin Logout
