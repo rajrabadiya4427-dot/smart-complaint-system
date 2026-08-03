@@ -543,13 +543,13 @@ function renderUserComplaints() {
 
     if (filtered.length === 0) {
         container.innerHTML = `
-            <div class="col-span-2 text-center" style="padding: 4rem 1.5rem; width: 100%; background: #fff; border-radius: 20px; border: 2px dashed #cbd5e1;">
-                <i class="fa-solid fa-clipboard-list" style="font-size: 3.5rem; color: #60a5fa; margin-bottom: 1rem;"></i>
-                <h3 style="color: var(--text-primary); font-size: 1.4rem; margin-bottom: 0.5rem;">No Active Grievances in Portal</h3>
-                <p style="color: var(--text-secondary); font-size: 0.975rem; max-width: 520px; margin: 0 auto 1.5rem;">
+            <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-16 px-6 w-full bg-white rounded-3xl border-2 border-dashed border-slate-300">
+                <i class="fa-solid fa-clipboard-list text-6xl text-blue-400 mb-4"></i>
+                <h3 class="text-slate-900 font-heading font-bold text-2xl mb-2">No Active Grievances in Portal</h3>
+                <p class="text-slate-500 text-[0.95rem] max-w-[520px] mx-auto mb-6">
                     When citizens or users submit a municipal complaint from the portal form above, their grievances will appear here globally in real-time.
                 </p>
-                <a href="#file-complaint" class="btn btn-primary">
+                <a href="#file-complaint" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(37,99,235,0.4)] transition-all">
                     <i class="fa-solid fa-paper-plane"></i> File a Complaint
                 </a>
             </div>
@@ -562,38 +562,38 @@ function renderUserComplaints() {
         const timelineHtml = renderTimeline(c.status);
 
         return `
-            <div class="complaint-card">
-                <div class="card-top">
-                    <span class="complaint-id"><i class="fa-solid fa-hashtag"></i> ${c.id}</span>
-                    <span class="status-badge ${statusBadgeClass}">${c.status}</span>
+            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-[0_2px_15px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col group relative overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 font-bold text-xs rounded-lg uppercase tracking-wider font-heading"><i class="fa-solid fa-hashtag text-slate-400"></i> ${c.id}</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border ${statusBadgeClass}">${c.status}</span>
                 </div>
 
-                <div class="citizen-info">
-                    <div class="user-avatar">${c.userName.charAt(0).toUpperCase()}</div>
-                    <div class="user-details">
-                        <h4>${escapeHtml(c.userName)}</h4>
-                        <span class="role-tag"><i class="fa-solid fa-user-tie"></i> ${escapeHtml(c.userRole)}</span>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-inner">${c.userName.charAt(0).toUpperCase()}</div>
+                    <div class="flex flex-col">
+                        <h4 class="font-bold text-slate-900 m-0 text-[1.05rem]">${escapeHtml(c.userName)}</h4>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 rounded-md text-[0.7rem] font-bold uppercase tracking-wider mt-1 w-fit"><i class="fa-solid fa-user-tie"></i> ${escapeHtml(c.userRole)}</span>
                     </div>
                 </div>
 
-                <div class="complaint-meta">
-                    <div><strong style="color: var(--text-primary);">${escapeHtml(c.serviceCategory)}</strong></div>
-                    <div><i class="fa-solid fa-location-dot"></i> ${escapeHtml(c.location)}</div>
-                    <div><i class="fa-regular fa-clock"></i> ${c.dateSubmitted}</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100/50">
+                    <div class="text-slate-500 text-[0.85rem] flex items-center gap-2"><strong class="text-slate-800">${escapeHtml(c.serviceCategory)}</strong></div>
+                    <div class="text-slate-500 text-[0.85rem] flex items-center gap-2 truncate" title="${escapeHtml(c.location)}"><i class="fa-solid fa-location-dot text-blue-400"></i> <span class="truncate">${escapeHtml(c.location)}</span></div>
+                    <div class="text-slate-500 text-[0.85rem] flex items-center gap-2 sm:col-span-2"><i class="fa-regular fa-clock text-slate-400"></i> ${c.dateSubmitted}</div>
                 </div>
 
-                <p class="complaint-desc">${escapeHtml(c.description)}</p>
+                <p class="text-slate-600 text-[0.95rem] leading-relaxed mb-6 line-clamp-3">${escapeHtml(c.description)}</p>
 
                 ${(c.status === "Confirmed" || c.status === "On Way" || c.status === "Resolved") ? `
-                    <div class="solved-location-banner">
-                        <i class="fa-solid fa-circle-check"></i>
+                    <div class="flex items-start gap-3 bg-emerald-50 text-emerald-800 p-4 rounded-xl text-[0.9rem] mb-6 border border-emerald-100">
+                        <i class="fa-solid fa-circle-check mt-0.5 text-emerald-500 text-lg"></i>
                         <span><strong>Problem Confirmed/Solved:</strong> ${escapeHtml(c.serviceCategory)} at ${escapeHtml(c.location)}</span>
                     </div>
                 ` : ''}
 
-                ${c.photo ? `<img src="${c.photo}" alt="Uploaded Complaint Photo Proof" class="complaint-thumbnail skeleton-loader" loading="lazy" onclick="openLightbox('${c.photo}', '${c.id} - ${escapeHtml(c.serviceCategory)}')">` : ''}
+                ${c.photo ? `<img src="${c.photo}" alt="Uploaded Complaint Photo Proof" class="w-full h-[200px] object-cover rounded-2xl mb-6 cursor-pointer hover:opacity-95 transition-opacity bg-slate-100 border border-slate-200/60" loading="lazy" onclick="openLightbox('${c.photo}', '${c.id} - ${escapeHtml(c.serviceCategory)}')">` : ''}
 
-                <div class="timeline-tracker">
+                <div class="mt-auto pt-6 border-t border-slate-100">
                     ${timelineHtml}
                 </div>
             </div>
@@ -608,29 +608,38 @@ function renderTimeline(status) {
 
     if (status === "Rejected") {
         return `
-            <div style="text-align: center; color: var(--danger); font-size: 0.85rem; font-weight: 700; padding: 0.5rem; background: var(--danger-light); border-radius: 8px;">
-                <i class="fa-solid fa-circle-xmark"></i> Grievance Rejected by Administration
+            <div class="text-center text-red-600 text-[0.85rem] font-bold p-3 bg-red-50 rounded-xl border border-red-100">
+                <i class="fa-solid fa-circle-xmark mr-1"></i> Grievance Rejected by Administration
             </div>
         `;
     }
 
+    const iconClasses = (idx) => {
+        if (currentIndex === idx) return "bg-blue-600 text-white shadow-[0_2px_8px_rgba(37,99,235,0.4)]"; // Active
+        if (currentIndex > idx) return "bg-emerald-500 text-white shadow-[0_2px_8px_rgba(16,185,129,0.3)]"; // Completed
+        return "bg-slate-200 text-slate-400"; // Future
+    };
+
     return `
-        <div class="timeline-steps">
-            <div class="step-item ${currentIndex >= 0 ? (currentIndex === 0 ? 'active' : 'completed') : ''}">
-                <div class="step-icon"><i class="fa-solid fa-clock"></i></div>
-                <span class="step-text">Pending</span>
+        <div class="flex items-center justify-between relative isolate">
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 -z-10 rounded-full"></div>
+            ${currentIndex > 0 ? `<div class="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-emerald-400 to-emerald-500 -translate-y-1/2 -z-10 rounded-full transition-all duration-500" style="width: ${(currentIndex / 3) * 100}%"></div>` : ''}
+            
+            <div class="flex flex-col items-center gap-2 bg-white px-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-[0.8rem] transition-all duration-300 ${iconClasses(0)}"><i class="fa-solid fa-clock"></i></div>
+                <span class="text-[0.65rem] uppercase tracking-wider transition-colors duration-300 ${currentIndex >= 0 ? 'text-slate-700 font-bold' : 'text-slate-400 font-medium'}">Pending</span>
             </div>
-            <div class="step-item ${currentIndex >= 1 ? (currentIndex === 1 ? 'active' : 'completed') : ''}">
-                <div class="step-icon"><i class="fa-solid fa-check"></i></div>
-                <span class="step-text">Confirmed</span>
+            <div class="flex flex-col items-center gap-2 bg-white px-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-[0.8rem] transition-all duration-300 ${iconClasses(1)}"><i class="fa-solid fa-check"></i></div>
+                <span class="text-[0.65rem] uppercase tracking-wider transition-colors duration-300 ${currentIndex >= 1 ? 'text-slate-700 font-bold' : 'text-slate-400 font-medium'}">Confirmed</span>
             </div>
-            <div class="step-item ${currentIndex >= 2 ? (currentIndex === 2 ? 'active' : 'completed') : ''}">
-                <div class="step-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <span class="step-text">On Way</span>
+            <div class="flex flex-col items-center gap-2 bg-white px-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-[0.8rem] transition-all duration-300 ${iconClasses(2)}"><i class="fa-solid fa-truck-fast"></i></div>
+                <span class="text-[0.65rem] uppercase tracking-wider transition-colors duration-300 ${currentIndex >= 2 ? 'text-slate-700 font-bold' : 'text-slate-400 font-medium'}">On Way</span>
             </div>
-            <div class="step-item ${currentIndex >= 3 ? (currentIndex === 3 ? 'active' : 'completed') : ''}">
-                <div class="step-icon"><i class="fa-solid fa-flag-checkered"></i></div>
-                <span class="step-text">Resolved</span>
+            <div class="flex flex-col items-center gap-2 bg-white px-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-[0.8rem] transition-all duration-300 ${iconClasses(3)}"><i class="fa-solid fa-flag-checkered"></i></div>
+                <span class="text-[0.65rem] uppercase tracking-wider transition-colors duration-300 ${currentIndex >= 3 ? 'text-slate-700 font-bold' : 'text-slate-400 font-medium'}">Resolved</span>
             </div>
         </div>
     `;
@@ -822,7 +831,7 @@ function renderAdminTable() {
     if (filtered.length === 0) {
         tbody.innerHTML = `
             <tr>
-                <td colspan="7" class="text-center" style="padding: 3rem; color: var(--text-muted);">
+                <td colspan="7" class="text-center py-12 text-slate-500 font-medium">
                     No complaints matching current filters.
                 </td>
             </tr>
@@ -832,41 +841,41 @@ function renderAdminTable() {
 
     tbody.innerHTML = filtered.map(c => {
         return `
-            <tr>
-                <td><strong>${c.id}</strong></td>
-                <td>
-                    <strong>${escapeHtml(c.userName)}</strong><br>
-                    <span class="role-tag">${escapeHtml(c.userRole)}</span>
+            <tr class="hover:bg-slate-50 transition-colors">
+                <td class="px-5 py-4 whitespace-nowrap"><strong class="text-slate-900">${c.id}</strong></td>
+                <td class="px-5 py-4">
+                    <strong class="text-slate-800">${escapeHtml(c.userName)}</strong><br>
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[0.7rem] font-bold uppercase tracking-wider mt-1">${escapeHtml(c.userRole)}</span>
                 </td>
-                <td>
-                    ${escapeHtml(c.serviceCategory)}<br>
-                    <small style="color: ${c.priority === 'Critical Emergency' ? 'var(--danger)' : 'var(--text-muted)'}; font-weight: 600;">
+                <td class="px-5 py-4">
+                    <span class="text-slate-700 font-medium">${escapeHtml(c.serviceCategory)}</span><br>
+                    <small class="${c.priority === 'Critical Emergency' ? 'text-red-500' : 'text-slate-500'} font-bold text-[0.75rem]">
                         ${c.priority}
                     </small>
                 </td>
-                <td>
-                    <i class="fa-solid fa-location-dot"></i> ${escapeHtml(c.location)}<br>
-                    <small style="color: var(--text-muted);">${c.dateSubmitted}</small>
+                <td class="px-5 py-4 max-w-[200px]">
+                    <div class="truncate text-slate-700 font-medium"><i class="fa-solid fa-location-dot text-blue-400 mr-1"></i> ${escapeHtml(c.location)}</div>
+                    <small class="text-slate-500 text-[0.75rem]">${c.dateSubmitted}</small>
                 </td>
-                <td>
-                    ${c.photo ? `<img src="${c.photo}" alt="Thumb" class="table-img-thumb" onclick="openLightbox('${c.photo}', '${c.id}')">` : '<span style="color:var(--text-muted);">No photo</span>'}
+                <td class="px-5 py-4 text-center">
+                    ${c.photo ? `<img src="${c.photo}" alt="Thumb" class="w-12 h-12 rounded-lg object-cover cursor-pointer hover:opacity-80 transition-opacity border border-slate-200 mx-auto shadow-sm" onclick="openLightbox('${c.photo}', '${c.id}')">` : '<span class="text-slate-400 text-sm italic">No photo</span>'}
                 </td>
-                <td>
-                    <span class="status-badge ${getStatusBadgeClass(c.status)}">${c.status}</span>
+                <td class="px-5 py-4">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wide border ${getStatusBadgeClass(c.status)}">${c.status}</span>
                 </td>
-                <td>
-                    <div style="display: flex; gap: 0.5rem; align-items: center;">
-                        <select class="status-select" onchange="updateComplaintStatus('${c.id}', this.value)">
+                <td class="px-5 py-4 text-right">
+                    <div class="flex items-center justify-end gap-2">
+                        <select class="px-2 py-1.5 border border-slate-300 rounded-md text-[0.8rem] focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-white font-medium cursor-pointer min-w-[100px]" onchange="updateComplaintStatus('${c.id}', this.value)">
                             <option value="Pending" ${c.status === 'Pending' ? 'selected' : ''}>Pending</option>
                             <option value="Confirmed" ${c.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
                             <option value="On Way" ${c.status === 'On Way' ? 'selected' : ''}>On Way</option>
                             <option value="Resolved" ${c.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
                             <option value="Rejected" ${c.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
                         </select>
-                        <button class="btn btn-sm btn-outline" onclick="viewComplaintDetails('${c.id}')" title="View Full Details & Photo">
-                            <i class="fa-solid fa-eye"></i> View
+                        <button class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition-colors border border-blue-100" onclick="viewComplaintDetails('${c.id}')" title="View Full Details & Photo">
+                            <i class="fa-solid fa-eye"></i>
                         </button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteComplaint('${c.id}')" title="Delete Complaint">
+                        <button class="w-8 h-8 flex items-center justify-center bg-red-50 text-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors border border-red-100" onclick="deleteComplaint('${c.id}')" title="Delete Complaint">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -896,27 +905,27 @@ function viewComplaintDetails(id) {
     const detailsModal = document.getElementById("detailsModal");
 
     modalHeader.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-            <h3><i class="fa-solid fa-file-lines"></i> Complaint Details: ${c.id}</h3>
-            <span class="status-badge ${getStatusBadgeClass(c.status)}">${c.status}</span>
+        <div class="flex items-center justify-between w-full pr-6">
+            <h3 class="font-heading font-bold text-xl text-slate-800 m-0 flex items-center gap-2"><i class="fa-solid fa-file-lines text-blue-600"></i> Complaint Details: ${c.id}</h3>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border ${getStatusBadgeClass(c.status)}">${c.status}</span>
         </div>
     `;
 
     modalBody.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
-            <div>
-                <p style="margin-bottom: 0.5rem;"><strong>Citizen Name:</strong> ${escapeHtml(c.userName)}</p>
-                <p style="margin-bottom: 0.5rem;"><strong>Citizen Role:</strong> <span class="role-tag">${escapeHtml(c.userRole)}</span></p>
-                <p style="margin-bottom: 0.5rem;"><strong>Service Department:</strong> ${escapeHtml(c.serviceCategory)}</p>
-                <p style="margin-bottom: 0.5rem;"><strong>Priority Level:</strong> <span style="color: ${c.priority === 'Critical Emergency' ? 'var(--danger)' : 'var(--primary)'}; font-weight: 700;">${c.priority}</span></p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="space-y-3">
+                <p class="text-[0.95rem] m-0"><strong class="text-slate-800">Citizen Name:</strong> <span class="text-slate-600">${escapeHtml(c.userName)}</span></p>
+                <p class="text-[0.95rem] m-0 flex items-center gap-2"><strong class="text-slate-800">Citizen Role:</strong> <span class="inline-flex items-center px-2 py-0.5 bg-blue-50 text-blue-700 rounded-md text-[0.7rem] font-bold uppercase tracking-wider">${escapeHtml(c.userRole)}</span></p>
+                <p class="text-[0.95rem] m-0"><strong class="text-slate-800">Service Department:</strong> <span class="text-slate-600">${escapeHtml(c.serviceCategory)}</span></p>
+                <p class="text-[0.95rem] m-0"><strong class="text-slate-800">Priority Level:</strong> <span class="${c.priority === 'Critical Emergency' ? 'text-red-600' : 'text-blue-600'} font-bold">${c.priority}</span></p>
             </div>
-            <div>
-                <p style="margin-bottom: 0.5rem;"><strong>Location Address:</strong> ${escapeHtml(c.location)}</p>
-                <p style="margin-bottom: 0.5rem;"><strong>Filing Date & Time:</strong> ${c.dateSubmitted}</p>
+            <div class="space-y-3">
+                <p class="text-[0.95rem] m-0"><strong class="text-slate-800">Location Address:</strong> <span class="text-slate-600">${escapeHtml(c.location)}</span></p>
+                <p class="text-[0.95rem] m-0"><strong class="text-slate-800">Filing Date & Time:</strong> <span class="text-slate-600">${c.dateSubmitted}</span></p>
                 ${isAdminLoggedIn ? `
-                    <div style="margin-top: 0.75rem;">
-                        <label style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Update Status:</label>
-                        <select class="status-select" onchange="updateComplaintStatus('${c.id}', this.value); viewComplaintDetails('${c.id}');">
+                    <div class="pt-3 mt-3 border-t border-slate-200">
+                        <label class="font-bold text-[0.85rem] text-slate-800 block mb-1.5">Update Status:</label>
+                        <select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-white font-medium cursor-pointer" onchange="updateComplaintStatus('${c.id}', this.value); viewComplaintDetails('${c.id}');">
                             <option value="Pending" ${c.status === 'Pending' ? 'selected' : ''}>Pending</option>
                             <option value="Confirmed" ${c.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
                             <option value="On Way" ${c.status === 'On Way' ? 'selected' : ''}>On Way</option>
@@ -928,17 +937,17 @@ function viewComplaintDetails(id) {
             </div>
         </div>
 
-        <div style="margin-bottom: 1.5rem;">
-            <strong style="font-size: 1.05rem; display: block; margin-bottom: 0.5rem;"><i class="fa-solid fa-align-left"></i> Detailed Problem Description:</strong>
-            <div class="complaint-desc" style="font-size: 1rem; line-height: 1.6; padding: 1rem; background: #ffffff; border-radius: 12px; border-left: 4px solid var(--primary); box-shadow: var(--shadow-sm);">${escapeHtml(c.description)}</div>
+        <div class="mb-8">
+            <strong class="text-[1.05rem] text-slate-800 block mb-3 flex items-center gap-2"><i class="fa-solid fa-align-left text-slate-400"></i> Detailed Problem Description:</strong>
+            <div class="text-[0.95rem] leading-relaxed p-5 bg-white rounded-xl border-l-4 border-l-blue-500 border border-slate-200 shadow-sm text-slate-700 whitespace-pre-wrap">${escapeHtml(c.description)}</div>
         </div>
 
         ${c.photo ? `
             <div>
-                <strong style="font-size: 1.05rem; display: block; margin-bottom: 0.5rem;"><i class="fa-solid fa-camera"></i> Uploaded Photo Proof:</strong>
-                <div style="margin-top: 0.5rem; text-align: center; background: #f1f5f9; padding: 1rem; border-radius: 12px;">
-                    <img src="${c.photo}" alt="Uploaded Photo Proof" style="max-height: 320px; width: auto; max-width: 100%; border-radius: 12px; cursor: pointer; box-shadow: var(--shadow-md);" onclick="openLightbox('${c.photo}', '${c.id} - ${escapeHtml(c.serviceCategory)}')">
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Click photo to expand full screen</p>
+                <strong class="text-[1.05rem] text-slate-800 block mb-3 flex items-center gap-2"><i class="fa-solid fa-camera text-slate-400"></i> Uploaded Photo Proof:</strong>
+                <div class="mt-2 text-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <img src="${c.photo}" alt="Uploaded Photo Proof" class="max-h-[320px] w-auto max-w-full rounded-lg cursor-pointer shadow-md hover:opacity-90 transition-opacity border border-slate-300 mx-auto" onclick="openLightbox('${c.photo}', '${c.id} - ${escapeHtml(c.serviceCategory)}')">
+                    <p class="text-[0.8rem] text-slate-500 mt-3 font-medium">Click photo to expand full screen</p>
                 </div>
             </div>
         ` : ''}
@@ -963,12 +972,12 @@ function openLightbox(imgSrc, captionText) {
 // Utility: Badge CSS Classes
 function getStatusBadgeClass(status) {
     switch (status) {
-        case "Pending": return "badge-pending";
-        case "Confirmed": return "badge-confirmed";
-        case "On Way": return "badge-onway";
-        case "Resolved": return "badge-resolved";
-        case "Rejected": return "badge-rejected";
-        default: return "badge-pending";
+        case "Pending": return "bg-amber-50 text-amber-600 border-amber-200";
+        case "Confirmed": return "bg-blue-50 text-blue-600 border-blue-200";
+        case "On Way": return "bg-indigo-50 text-indigo-600 border-indigo-200";
+        case "Resolved": return "bg-emerald-50 text-emerald-600 border-emerald-200";
+        case "Rejected": return "bg-red-50 text-red-600 border-red-200";
+        default: return "bg-slate-50 text-slate-600 border-slate-200";
     }
 }
 
@@ -1026,13 +1035,25 @@ function showToast(message, type = "info") {
     if (!container) return;
 
     const toast = document.createElement("div");
-    toast.className = `toast toast-${type}`;
+    let bgColors = "bg-slate-800 text-white border-slate-700";
+    let icon = "fa-circle-info text-blue-400";
+    
+    if (type === "success") {
+        bgColors = "bg-emerald-50 text-emerald-800 border-emerald-200 shadow-emerald-500/20";
+        icon = "fa-circle-check text-emerald-500";
+    }
+    if (type === "danger") {
+        bgColors = "bg-red-50 text-red-800 border-red-200 shadow-red-500/20";
+        icon = "fa-circle-exclamation text-red-500";
+    }
+    if (type === "info") {
+        bgColors = "bg-blue-50 text-blue-800 border-blue-200 shadow-blue-500/20";
+        icon = "fa-circle-info text-blue-500";
+    }
 
-    let icon = "fa-circle-info";
-    if (type === "success") icon = "fa-circle-check";
-    if (type === "danger") icon = "fa-circle-exclamation";
+    toast.className = `flex items-center gap-3 px-5 py-3.5 rounded-xl border shadow-lg font-medium text-[0.95rem] max-w-sm pointer-events-auto transition-all duration-300 transform translate-x-0 opacity-100 ${bgColors}`;
 
-    toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${escapeHtml(message)}</span>`;
+    toast.innerHTML = `<i class="fa-solid ${icon} text-xl flex-shrink-0"></i> <span>${escapeHtml(message)}</span>`;
     container.appendChild(toast);
 
     setTimeout(() => {
