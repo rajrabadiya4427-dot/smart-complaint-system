@@ -230,7 +230,10 @@ function checkSessionState() {
     if (currentUser) {
         if (loggedOutNav) loggedOutNav.classList.add("hidden");
         if (loggedInNav) loggedInNav.classList.remove("hidden");
-        if (navUserName) navUserName.textContent = currentUser.name || currentUser.email;
+        const displayName = currentUser.name || currentUser.email;
+        if (navUserName) navUserName.textContent = displayName;
+        const dropdownUserName = document.getElementById("dropdownUserName");
+        if (dropdownUserName) dropdownUserName.textContent = displayName;
 
         if (currentUser.email === "smartservice@gmail.com") {
             isAdminLoggedIn = true;
@@ -283,6 +286,23 @@ function setupEventListeners() {
     if (hamburgerBtn && navMenu) {
         hamburgerBtn.addEventListener("click", () => {
             navMenu.classList.toggle("active");
+        });
+    }
+
+    // Mobile User Badge Icon Click Dropdown
+    const userNavBadge = document.getElementById("userNavBadge");
+    const userNavDropdown = document.getElementById("userNavDropdown");
+
+    if (userNavBadge && userNavDropdown) {
+        userNavBadge.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768) {
+                e.stopPropagation();
+                userNavDropdown.classList.toggle("show");
+            }
+        });
+
+        document.addEventListener("click", () => {
+            userNavDropdown.classList.remove("show");
         });
     }
 

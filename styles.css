@@ -348,6 +348,7 @@ h6 {
 }
 
 .user-nav-badge {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -358,11 +359,18 @@ h6 {
     font-size: 0.85rem;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition);
 }
 
 .user-nav-badge i {
     color: var(--primary);
     font-size: 1.1rem;
+}
+
+.user-nav-dropdown {
+    display: none;
 }
 
 .hamburger-btn {
@@ -1802,6 +1810,38 @@ h6 {
 
     .hamburger-btn {
         display: block;
+    }
+
+    /* Mobile Responsive User Badge & Dropdown */
+    .user-nav-badge {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .user-nav-badge > #navUserName {
+        display: none !important;
+    }
+
+    .user-nav-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        background: #0f172a;
+        color: #ffffff;
+        padding: 0.5rem 0.85rem;
+        border-radius: var(--radius-md);
+        font-size: 0.825rem;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid #334155;
+        z-index: 1001;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .user-nav-dropdown.show {
+        display: flex !important;
     }
 
     .hero-title {
