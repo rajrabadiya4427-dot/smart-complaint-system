@@ -65,8 +65,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            corePlugins: {
-                preflight: false,
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563eb',
+                            hover: '#1d4ed8',
+                            light: '#eff6ff',
+                        },
+                        secondary: {
+                            DEFAULT: '#0d9488',
+                            hover: '#0f766e',
+                        },
+                        dark: {
+                            bg: '#0f172a',
+                            surface: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
             }
         }
     </script>
@@ -273,49 +293,53 @@
 
     <main>
         <!-- Hero Section -->
-        <section href="#home" id="home" class="hero-section">
-            <div class="hero-bg-overlay"></div>
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <div class="badge-pill">
+        <section id="home" class="relative pt-36 pb-20 bg-gradient-to-b from-blue-50 to-slate-50 overflow-hidden">
+            <!-- Background Overlay -->
+            <div class="absolute -top-24 -right-24 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(37,99,235,0.1)_0%,rgba(255,255,255,0)_70%)] pointer-events-none"></div>
+            
+            <div class="w-[90%] max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center relative z-10">
+                <div class="flex flex-col items-start text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-6">
                         <i class="fa-solid fa-shield-halved"></i> Official AMC Municipal Care Portal
                     </div>
-                    <h1 class="hero-title">Smart Municipal <br><span class="gradient-text">Complaint & Resolution
-                            System</span></h1>
-                    <p class="hero-description">
+                    <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.25rem] text-slate-900 leading-tight tracking-tight mb-5">Smart Municipal <br><span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Complaint & Resolution System</span></h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-[540px]">
                         Empowering citizens to report civic issues instantly. Submit complaints with detailed
                         descriptions, images, and track resolution status in real-time.
                     </p>
-                    <div class="hero-cta">
-                        <a href="#file-complaint" class="btn btn-primary btn-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#file-complaint" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-xl shadow-[0_4px_12px_rgba(37,99,235,0.25)] hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(37,99,235,0.35)] transition-all whitespace-nowrap text-[1.05rem]">
                             <i class="fa-solid fa-paper-plane"></i> Submit Complaint Now
                         </a>
-                        <a href="#track-status" class="btn btn-outline btn-lg">
+                        <a href="#track-status" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent border border-slate-200 text-slate-900 font-semibold rounded-xl hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all whitespace-nowrap text-[1.05rem]">
                             <i class="fa-solid fa-list-check"></i> Track Active Complaints
                         </a>
                     </div>
                 </div>
 
-                <div class="hero-stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon icon-emerald"><i class="fa-solid fa-check-double"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value" id="statResolvedCount">0</h3>
-                            <p class="stat-label">Issues Resolved</p>
+                <div class="flex flex-col gap-5">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:translate-x-1.5 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl bg-emerald-100 text-emerald-600 flex-shrink-0"><i class="fa-solid fa-check-double"></i></div>
+                        <div>
+                            <h3 class="font-heading font-extrabold text-3xl text-slate-900 leading-none" id="statResolvedCount">0</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-1">Issues Resolved</p>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon icon-amber"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value" id="statAvgResponseTime">0 hrs</h3>
-                            <p class="stat-label">Avg. Response Time</p>
+                    <!-- Stat Card 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:translate-x-1.5 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl bg-amber-100 text-amber-600 flex-shrink-0"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <div>
+                            <h3 class="font-heading font-extrabold text-3xl text-slate-900 leading-none" id="statAvgResponseTime">0 hrs</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-1">Avg. Response Time</p>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon icon-blue"><i class="fa-solid fa-users"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value" id="statCitizenCount">0</h3>
-                            <p class="stat-label">Active Complaints</p>
+                    <!-- Stat Card 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:translate-x-1.5 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl bg-blue-100 text-blue-600 flex-shrink-0"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <h3 class="font-heading font-extrabold text-3xl text-slate-900 leading-none" id="statCitizenCount">0</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-1">Active Complaints</p>
                         </div>
                     </div>
                 </div>
@@ -323,96 +347,122 @@
         </section>
 
         <!-- Our Services Section -->
-        <section id="services" class="section services-section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge"><i class="fa-solid fa-cubes"></i> Essential Services</span>
-                    <h2 class="section-title">Municipal Services We Cover</h2>
-                    <p class="section-subtitle">Select a municipal service department to file your grievance directly to
-                        responsible officers.</p>
+        <section id="services" class="py-20 bg-white">
+            <div class="w-[90%] max-w-[1240px] mx-auto">
+                <div class="text-center mb-14">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 text-[0.85rem] font-bold uppercase tracking-wider rounded-full mb-4">
+                        <i class="fa-solid fa-cubes"></i> Essential Services
+                    </span>
+                    <h2 class="font-heading font-bold text-4xl text-slate-900 mb-3">Municipal Services We Cover</h2>
+                    <p class="text-[1.1rem] text-slate-600 max-w-[600px] mx-auto">Select a municipal service department to file your grievance directly to responsible officers.</p>
                 </div>
 
-                <div class="services-grid">
-                    <div class="service-card" data-service="Sanitation & Waste">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Sanitation.avif" alt="Sanitation & Waste Management" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-trash-can"></i> Sanitation</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Sanitation & Waste">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Sanitation.avif" alt="Sanitation & Waste Management" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-trash-can"></i> Sanitation
+                            </span>
                         </div>
-                        <div class="service-card-body">
-                            <h3>Sanitation & Waste Management</h3>
-                            <p>Report uncollected garbage, overflow bins, illegal dumping, and public area cleaning
-                                issues.</p>
-                            <a href="#file-complaint" onclick="preselectService('Sanitation & Waste')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="service-card" data-service="Roads & Potholes">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Infrastructure.avif" alt="Roads & Pothole Repair" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-road"></i> Infrastructure</span>
-                        </div>
-                        <div class="service-card-body">
-                            <h3>Roads & Pothole Repair</h3>
-                            <p>Fix hazardous potholes, damaged footpaths, missing manhole covers, and street hazards.
-                            </p>
-                            <a href="#file-complaint" onclick="preselectService('Roads & Potholes')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Sanitation & Waste Management</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Report uncollected garbage, overflow bins, illegal dumping, and public area cleaning issues.</p>
+                            <a href="#file-complaint" onclick="preselectService('Sanitation & Waste')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="Street Lighting">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Electrical.jpg" alt="Street Lighting & Electrical" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-lightbulb"></i> Electrical</span>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Roads & Potholes">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Infrastructure.avif" alt="Roads & Pothole Repair" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-road"></i> Infrastructure
+                            </span>
                         </div>
-                        <div class="service-card-body">
-                            <h3>Street Lighting & Power</h3>
-                            <p>Non-functional street lamps, damaged electric poles, dark corridors, and wire leakages.
-                            </p>
-                            <a href="#file-complaint" onclick="preselectService('Street Lighting')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="service-card" data-service="Water & Drainage">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Water Line.jpg" alt="Water Supply & Sewage" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-droplet"></i> Water Line</span>
-                        </div>
-                        <div class="service-card-body">
-                            <h3>Water Supply & Sewage</h3>
-                            <p>Main line pipe leaks, dirty drinking water supply, blocked drains, and sewer overflows.
-                            </p>
-                            <a href="#file-complaint" onclick="preselectService('Water & Drainage')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Roads & Pothole Repair</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Fix hazardous potholes, damaged footpaths, missing manhole covers, and street hazards.</p>
+                            <a href="#file-complaint" onclick="preselectService('Roads & Potholes')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="Parks & Trees">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Parks & Fallen Trees.webp" alt="Parks & Fallen Trees" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-tree"></i> Environment</span>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Street Lighting">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Electrical.jpg" alt="Street Lighting & Electrical" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-lightbulb"></i> Electrical
+                            </span>
                         </div>
-                        <div class="service-card-body">
-                            <h3>Parks & Fallen Trees</h3>
-                            <p>Broken park equipment, dangerous overgrown trees, fallen branches blocking roads.</p>
-                            <a href="#file-complaint" onclick="preselectService('Parks & Trees')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Street Lighting & Power</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Non-functional street lamps, damaged electric poles, dark corridors, and wire leakages.</p>
+                            <a href="#file-complaint" onclick="preselectService('Street Lighting')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="service-card" data-service="Public Health & Stray Animals">
-                        <div class="service-img-wrap skeleton-loader">
-                            <img src="./imgs/Health.avif" alt="Public Health & Vector Control" loading="lazy">
-                            <span class="service-badge"><i class="fa-solid fa-heart-pulse"></i> Healthcare</span>
+                    <!-- Service Card 4 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Water & Drainage">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Water Line.jpg" alt="Water Supply & Sewage" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-droplet"></i> Water Line
+                            </span>
                         </div>
-                        <div class="service-card-body">
-                            <h3>Public Health & Vector Control</h3>
-                            <p>Mosquito fogging requests, stray animal rescue, food hygiene complaints, and pest
-                                control.</p>
-                            <a href="#file-complaint" onclick="preselectService('Public Health & Stray Animals')"
-                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Water Supply & Sewage</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Main line pipe leaks, dirty drinking water supply, blocked drains, and sewer overflows.</p>
+                            <a href="#file-complaint" onclick="preselectService('Water & Drainage')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Parks & Trees">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Parks & Fallen Trees.webp" alt="Parks & Fallen Trees" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-tree"></i> Environment
+                            </span>
+                        </div>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Parks & Fallen Trees</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Broken park equipment, dangerous overgrown trees, fallen branches blocking roads.</p>
+                            <a href="#file-complaint" onclick="preselectService('Parks & Trees')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col relative group transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_10px_25px_-5px_rgba(15,23,42,0.12)]" data-service="Public Health & Stray Animals">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div class="w-full h-[190px] relative overflow-hidden bg-slate-200 skeleton-loader">
+                            <img src="./imgs/Health.avif" alt="Public Health & Vector Control" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-[0.775rem] font-bold tracking-wide border border-white/20 inline-flex items-center gap-1.5 z-10">
+                                <i class="fa-solid fa-heart-pulse"></i> Healthcare
+                            </span>
+                        </div>
+                        <div class="p-7 flex flex-col flex-grow bg-white">
+                            <h3 class="font-heading font-bold text-[1.25rem] text-slate-900 mb-3">Public Health & Vector Control</h3>
+                            <p class="text-[0.95rem] text-slate-600 mb-6 flex-grow">Mosquito fogging requests, stray animal rescue, food hygiene complaints, and pest control.</p>
+                            <a href="#file-complaint" onclick="preselectService('Public Health & Stray Animals')" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-[0.9rem] transition-all group-hover:gap-3">
+                                Report Issue <i class="fa-solid fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -420,59 +470,56 @@
         </section>
 
         <!-- About Project Section -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="about-card-wrapper">
-                    <div class="about-image-col">
-                        <div class="about-visual-card">
-                            <div class="visual-icon-glow">
+        <section id="about" class="py-20 bg-white border-y border-slate-200">
+            <div class="w-[90%] max-w-[1240px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
+                    <div>
+                        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-10 md:p-14 rounded-3xl shadow-[0_20px_40px_rgba(15,23,42,0.2)] relative overflow-hidden">
+                            <div class="w-16 h-16 bg-blue-600/20 text-blue-400 border border-blue-400/30 rounded-xl flex items-center justify-center text-3xl mb-7">
                                 <i class="fa-solid fa-building-columns"></i>
                             </div>
-                            <h3>Smart Municipal Vision</h3>
-                            <p>Transforming municipal governance through digital speed, accountability, and
-                                citizen-first issue resolution.</p>
-                            <div class="visual-badges">
-                                <span><i class="fa-solid fa-shield-halved"></i> Encrypted Data</span>
-                                <span><i class="fa-solid fa-bolt"></i> Real-time Sync</span>
-                                <span><i class="fa-solid fa-mobile-screen"></i> 100% Mobile Ready</span>
+                            <h3 class="text-white text-3xl font-heading font-bold mb-4">Smart Municipal Vision</h3>
+                            <p class="text-slate-400 text-[1.05rem] mb-8 leading-relaxed">Transforming municipal governance through digital speed, accountability, and citizen-first issue resolution.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-white/10 px-4 py-1.5 rounded-full text-sm text-slate-300 flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Encrypted Data</span>
+                                <span class="bg-white/10 px-4 py-1.5 rounded-full text-sm text-slate-300 flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Real-time Sync</span>
+                                <span class="bg-white/10 px-4 py-1.5 rounded-full text-sm text-slate-300 flex items-center gap-2"><i class="fa-solid fa-mobile-screen"></i> 100% Mobile Ready</span>
                             </div>
                         </div>
                     </div>
-                    <div class="about-content-col">
-                        <span class="section-badge"><i class="fa-solid fa-circle-nodes"></i> Project Overview</span>
-                        <h2 class="section-title">About AMC Smart Complaint System</h2>
-                        <p class="about-text">
+                    <div>
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 text-[0.85rem] font-bold uppercase tracking-wider rounded-full mb-5">
+                            <i class="fa-solid fa-circle-nodes"></i> Project Overview
+                        </span>
+                        <h2 class="font-heading font-bold text-4xl text-slate-900 mb-5">About AMC Smart Complaint System</h2>
+                        <p class="text-[1.1rem] text-slate-600 leading-relaxed mb-10">
                             The <strong>Smart Municipal Complaint Management System</strong> is an end-to-end civic
                             service platform built for modern municipal corporations. It bridges the gap between
                             citizens and city maintenance departments.
                         </p>
 
-                        <div class="about-features-list">
-                            <div class="feature-item">
-                                <div class="feature-icon"><i class="fa-solid fa-user-check"></i></div>
+                        <div class="flex flex-col gap-8">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fa-solid fa-user-check"></i></div>
                                 <div>
-                                    <h4>Citizen Profile & Role Tagging</h4>
-                                    <p>Allows users (Students, Employees/Job workers, Business owners, Senior Citizens)
-                                        to specify their role for prioritized routing.</p>
+                                    <h4 class="font-heading font-bold text-lg text-slate-900 mb-1">Citizen Profile & Role Tagging</h4>
+                                    <p class="text-slate-600">Allows users (Students, Employees/Job workers, Business owners, Senior Citizens) to specify their role for prioritized routing.</p>
                                 </div>
                             </div>
 
-                            <div class="feature-item">
-                                <div class="feature-icon"><i class="fa-solid fa-camera"></i></div>
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fa-solid fa-camera"></i></div>
                                 <div>
-                                    <h4>Visual Proof & Photo Upload</h4>
-                                    <p>Citizens can attach images of broken infrastructure or uncollected waste for
-                                        instant inspection.</p>
+                                    <h4 class="font-heading font-bold text-lg text-slate-900 mb-1">Visual Proof & Photo Upload</h4>
+                                    <p class="text-slate-600">Citizens can attach images of broken infrastructure or uncollected waste for instant inspection.</p>
                                 </div>
                             </div>
 
-                            <div class="feature-item">
-                                <div class="feature-icon"><i class="fa-solid fa-bars-progress"></i></div>
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fa-solid fa-bars-progress"></i></div>
                                 <div>
-                                    <h4>Dynamic Status Tracking</h4>
-                                    <p>Track progress step-by-step: <strong>Pending</strong> &rarr;
-                                        <strong>Confirmed</strong> &rarr; <strong>On Way</strong> &rarr;
-                                        <strong>Resolved</strong>.</p>
+                                    <h4 class="font-heading font-bold text-lg text-slate-900 mb-1">Dynamic Status Tracking</h4>
+                                    <p class="text-slate-600">Track progress step-by-step: <strong>Pending</strong> &rarr; <strong>Confirmed</strong> &rarr; <strong>On Way</strong> &rarr; <strong>Resolved</strong>.</p>
                                 </div>
                             </div>
                         </div>
@@ -482,31 +529,31 @@
         </section>
 
         <!-- Submit Complaint Form Section -->
-        <section id="file-complaint" class="section complaint-form-section">
-            <div class="container">
-                <div class="form-wrapper">
-                    <div class="form-header text-center">
-                        <span class="section-badge"><i class="fa-solid fa-pen-to-square"></i> Civic Portal</span>
-                        <h2 class="section-title">File a Municipal Complaint</h2>
-                        <p class="section-subtitle">Please fill in accurate details so our municipal field unit can
-                            respond swiftly.</p>
+        <section id="file-complaint" class="py-20 bg-slate-50 relative">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.05)_0%,rgba(255,255,255,0)_70%)] pointer-events-none"></div>
+            <div class="w-[90%] max-w-[1240px] mx-auto relative z-10">
+                <div class="max-w-[850px] mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-[0_10px_40px_-10px_rgba(15,23,42,0.1)] border border-slate-200">
+                    <div class="text-center mb-10">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 text-[0.85rem] font-bold uppercase tracking-wider rounded-full mb-4">
+                            <i class="fa-solid fa-pen-to-square"></i> Civic Portal
+                        </span>
+                        <h2 class="font-heading font-bold text-3xl md:text-4xl text-slate-900 mb-3">File a Municipal Complaint</h2>
+                        <p class="text-[1.05rem] text-slate-600">Please fill in accurate details so our municipal field unit can respond swiftly.</p>
                     </div>
 
-                    <form id="complaintForm" class="complaint-form" novalidate>
-                        <div class="form-grid">
+                    <form id="complaintForm" class="space-y-6" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Full Name -->
-                            <div class="form-group">
-                                <label for="userName"><i class="fa-solid fa-user"></i> Full Name <span
-                                        class="required">*</span></label>
-                                <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required>
-                                <small class="error-msg">Please enter your full name.</small>
+                            <div class="flex flex-col form-group">
+                                <label for="userName" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-user text-blue-600"></i> Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all placeholder:text-slate-400">
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Please enter your full name.</small>
                             </div>
 
                             <!-- Role / Occupation -->
-                            <div class="form-group">
-                                <label for="userRole"><i class="fa-solid fa-briefcase"></i> Your Role / Occupation <span
-                                        class="required">*</span></label>
-                                <select id="userRole" required>
+                            <div class="flex flex-col form-group">
+                                <label for="userRole" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-briefcase text-blue-600"></i> Your Role / Occupation <span class="text-red-500">*</span></label>
+                                <select id="userRole" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all appearance-none cursor-pointer">
                                     <option value="" disabled selected>Select your role...</option>
                                     <option value="Student">Student</option>
                                     <option value="Job / Employee">Job / Employee</option>
@@ -514,14 +561,13 @@
                                     <option value="Senior Citizen">Senior Citizen</option>
                                     <option value="Resident / Citizen">Resident / Citizen</option>
                                 </select>
-                                <small class="error-msg">Please select your role.</small>
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Please select your role.</small>
                             </div>
 
                             <!-- Service Category -->
-                            <div class="form-group">
-                                <label for="serviceCategory"><i class="fa-solid fa-list-check"></i> Service Category
-                                    <span class="required">*</span></label>
-                                <select id="serviceCategory" required>
+                            <div class="flex flex-col form-group">
+                                <label for="serviceCategory" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-list-check text-blue-600"></i> Service Category <span class="text-red-500">*</span></label>
+                                <select id="serviceCategory" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all appearance-none cursor-pointer">
                                     <option value="" disabled selected>Select category...</option>
                                     <option value="Sanitation & Waste">Sanitation & Waste Management</option>
                                     <option value="Roads & Potholes">Roads & Pothole Repair</option>
@@ -530,14 +576,13 @@
                                     <option value="Parks & Trees">Parks & Fallen Trees</option>
                                     <option value="Public Health & Stray Animals">Public Health & Stray Animals</option>
                                 </select>
-                                <small class="error-msg">Please select a service category.</small>
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Please select a service category.</small>
                             </div>
 
                             <!-- Priority Level -->
-                            <div class="form-group">
-                                <label for="priorityLevel"><i class="fa-solid fa-triangle-exclamation"></i> Urgency /
-                                    Priority</label>
-                                <select id="priorityLevel">
+                            <div class="flex flex-col form-group">
+                                <label for="priorityLevel" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-blue-600"></i> Urgency / Priority</label>
+                                <select id="priorityLevel" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all appearance-none cursor-pointer">
                                     <option value="Normal" selected>Normal Urgency</option>
                                     <option value="High">High Urgency</option>
                                     <option value="Critical Emergency">Critical Emergency</option>
@@ -545,49 +590,42 @@
                             </div>
 
                             <!-- Location / Address -->
-                            <div class="form-group col-span-2">
-                                <label for="complaintLocation"><i class="fa-solid fa-location-dot"></i> Location /
-                                    Landmark Address <span class="required">*</span></label>
-                                <input type="text" id="complaintLocation"
-                                    placeholder="e.g. Near Bus Stand, Sector 4, Main Road" required>
-                                <small class="error-msg">Please provide the location address.</small>
+                            <div class="flex flex-col md:col-span-2 form-group">
+                                <label for="complaintLocation" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot text-blue-600"></i> Location / Landmark Address <span class="text-red-500">*</span></label>
+                                <input type="text" id="complaintLocation" placeholder="e.g. Near Bus Stand, Sector 4, Main Road" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all placeholder:text-slate-400">
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Please provide the location address.</small>
                             </div>
 
                             <!-- Long Description -->
-                            <div class="form-group col-span-2">
-                                <label for="complaintDescription"><i class="fa-solid fa-align-left"></i> Problem Long
-                                    Description <span class="required">*</span></label>
-                                <textarea id="complaintDescription" rows="4"
-                                    placeholder="Describe the municipal issue in detail (e.g. duration, impact, specific spots)..."
-                                    required></textarea>
-                                <small class="error-msg">Please provide a detailed description of the problem.</small>
+                            <div class="flex flex-col md:col-span-2 form-group">
+                                <label for="complaintDescription" class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-align-left text-blue-600"></i> Problem Long Description <span class="text-red-500">*</span></label>
+                                <textarea id="complaintDescription" rows="4" placeholder="Describe the municipal issue in detail (e.g. duration, impact, specific spots)..." required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all placeholder:text-slate-400 resize-y"></textarea>
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Please provide a detailed description of the problem.</small>
                             </div>
 
                             <!-- Image Upload with Preview (Compulsory) -->
-                            <div class="form-group col-span-2" id="photoGroup">
-                                <label><i class="fa-solid fa-camera"></i> Attach Image / Photo Proof <span
-                                        class="required">*</span></label>
-                                <div class="file-upload-zone" id="uploadZone">
-                                    <input type="file" id="photoInput" accept="image/*" class="file-input" required>
-                                    <div class="upload-content" id="uploadPrompt">
-                                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
-                                        <p><strong>Click to browse</strong> or drag & drop photo here</p>
-                                        <span>Supports JPG, PNG, WEBP (Max 5MB)</span>
+                            <div class="flex flex-col md:col-span-2 form-group" id="photoGroup">
+                                <label class="text-[0.95rem] font-semibold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-camera text-blue-600"></i> Attach Image / Photo Proof <span class="text-red-500">*</span></label>
+                                <div class="relative border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-xl p-8 text-center transition-all hover:bg-blue-50 cursor-pointer" id="uploadZone">
+                                    <input type="file" id="photoInput" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                    <div id="uploadPrompt" class="pointer-events-none">
+                                        <i class="fa-solid fa-cloud-arrow-up text-4xl text-blue-500 mb-3"></i>
+                                        <p class="text-[1.05rem] text-slate-700 mb-1"><strong>Click to browse</strong> or drag & drop photo here</p>
+                                        <span class="text-[0.85rem] text-slate-500 font-medium">Supports JPG, PNG, WEBP (Max 5MB)</span>
                                     </div>
-                                    <div class="image-preview-container hidden" id="previewContainer">
-                                        <img id="imagePreview" src="" alt="Complaint Photo Preview" loading="lazy">
-                                        <button type="button" class="btn-remove-img" id="removeImgBtn"
-                                            title="Remove Photo">
+                                    <div class="hidden relative w-full max-w-[400px] h-[250px] mx-auto rounded-lg overflow-hidden shadow-md z-30" id="previewContainer">
+                                        <img id="imagePreview" src="" alt="Complaint Photo Preview" loading="lazy" class="w-full h-full object-cover">
+                                        <button type="button" id="removeImgBtn" title="Remove Photo" class="absolute top-2 right-2 w-8 h-8 bg-slate-900/80 text-white rounded-full flex items-center justify-center hover:bg-red-500 transition-colors z-40">
                                             <i class="fa-solid fa-xmark"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <small class="error-msg">Photo proof is compulsory to submit a grievance.</small>
+                                <small class="error-msg hidden text-red-500 text-[0.85rem] mt-1.5 font-medium"><i class="fa-solid fa-circle-exclamation"></i> Photo proof is compulsory to submit a grievance.</small>
                             </div>
                         </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitFormBtn">
+                        <div class="mt-8 pt-6 border-t border-slate-100">
+                            <button type="submit" id="submitFormBtn" class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(37,99,235,0.4)] transition-all text-lg">
                                 <i class="fa-solid fa-paper-plane"></i> Submit Grievance
                             </button>
                         </div>
@@ -597,26 +635,26 @@
         </section>
 
         <!-- User Track Status Section -->
-        <section id="track-status" class="section track-section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge"><i class="fa-solid fa-magnifying-glass"></i> Live Status Portal</span>
-                    <h2 class="section-title">Track Submitted Complaints</h2>
-                    <p class="section-subtitle">Real-time status updates synced automatically with municipal field
-                        officers.</p>
+        <section id="track-status" class="py-20 bg-white">
+            <div class="w-[90%] max-w-[1240px] mx-auto">
+                <div class="text-center mb-14">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 text-[0.85rem] font-bold uppercase tracking-wider rounded-full mb-4">
+                        <i class="fa-solid fa-magnifying-glass"></i> Live Status Portal
+                    </span>
+                    <h2 class="font-heading font-bold text-4xl text-slate-900 mb-3">Track Submitted Complaints</h2>
+                    <p class="text-[1.1rem] text-slate-600 max-w-[600px] mx-auto">Real-time status updates synced automatically with municipal field officers.</p>
                 </div>
 
                 <!-- Controls & Search -->
-                <div class="tracker-controls">
-                    <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="userSearchInput"
-                            placeholder="Search by Complaint ID, Citizen Name, or Location...">
+                <div class="flex flex-col md:flex-row gap-4 mb-10 max-w-[900px] mx-auto bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="relative flex-grow">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="userSearchInput" placeholder="Search by Complaint ID, Citizen Name, or Location..." class="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all placeholder:text-slate-400">
                     </div>
 
-                    <div class="filter-box">
-                        <label for="userStatusFilter"><i class="fa-solid fa-filter"></i> Filter Status:</label>
-                        <select id="userStatusFilter">
+                    <div class="flex items-center gap-3 bg-white px-4 py-2 border border-slate-200 rounded-xl flex-shrink-0">
+                        <label for="userStatusFilter" class="text-[0.9rem] font-bold text-slate-700 whitespace-nowrap"><i class="fa-solid fa-filter text-blue-500 mr-1.5"></i> Filter Status:</label>
+                        <select id="userStatusFilter" class="bg-transparent border-none text-slate-900 font-semibold focus:outline-none cursor-pointer pr-4 appearance-none">
                             <option value="ALL">All Statuses</option>
                             <option value="Pending">Pending</option>
                             <option value="Confirmed">Confirmed</option>
@@ -627,7 +665,7 @@
                 </div>
 
                 <!-- Complaints Display Container -->
-                <div id="userComplaintsList" class="complaints-grid">
+                <div id="userComplaintsList" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     <!-- Dynamic complaints rendered via JS -->
                 </div>
             </div>
