@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Page Title & Favicon -->
     <title>SmartCity Care | Municipal Complaint Management System</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><path fill='%23ffffff' d='M50 16L18 36v16c0 22 15 41 32 46 17-5 32-24 32-46V36L50 16zm0 18a12 12 0 1 1 0 24 12 12 0 0 1 0-24z'/></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><path fill='%23ffffff' d='M50 16L18 36v16c0 22 15 41 32 46 17-5 32-24 32-46V36L50 16zm0 18a12 12 0 1 1 0 24 12 12 0 0 1 0-24z'/></svg>">
     <meta name="theme-color" content="#2563eb">
 
     <!-- SEO Meta Tags for Google Indexing -->
-    <meta name="description" content="Official SmartCity Care Municipal Complaint Management Portal. Report civic grievances online for sanitation, pothole repairs, street lighting, water leakage, and track live resolution status.">
-    <meta name="keywords" content="municipal complaints, smart city portal, civic care, amc complaint registration, pothole repair report, street light complaint, municipal services, track civic grievance">
+    <meta name="description"
+        content="Official SmartCity Care Municipal Complaint Management Portal. Report civic grievances online for sanitation, pothole repairs, street lighting, water leakage, and track live resolution status.">
+    <meta name="keywords"
+        content="municipal complaints, smart city portal, civic care, amc complaint registration, pothole repair report, street light complaint, municipal services, track civic grievance">
     <meta name="author" content="SmartCity Care Corporation">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -21,18 +24,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartcitycare.netlify.app/">
     <meta property="og:title" content="SmartCity Civic Care | Municipal Complaint Management System">
-    <meta property="og:description" content="File municipal complaints online and track grievance resolution status in real-time. Official AMC civic care portal.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=1200&auto=format&fit=crop&q=80">
+    <meta property="og:description"
+        content="File municipal complaints online and track grievance resolution status in real-time. Official AMC civic care portal.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=1200&auto=format&fit=crop&q=80">
     <meta property="og:site_name" content="SmartCity Care">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SmartCity Civic Care | Municipal Complaint Management System">
-    <meta name="twitter:description" content="File municipal complaints online and track grievance resolution status in real-time. Official AMC civic care portal.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=1200&auto=format&fit=crop&q=80">
+    <meta name="twitter:description"
+        content="File municipal complaints online and track grievance resolution status in real-time. Official AMC civic care portal.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=1200&auto=format&fit=crop&q=80">
 
-    
-    
+
+
     <!-- JSON-LD Structured Data for Google Search Indexing -->
     <script type="application/ld+json">
     {
@@ -69,6 +76,13 @@
                 preflight: false,
             }
         }
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
     </script>
 
     <link rel="stylesheet" href="styles.css">
@@ -78,130 +92,129 @@
 
 <body>
 
-  ```html
-<!-- Header Navigation -->
-<header id="navbar"
-    class="fixed top-0 left-0 w-full z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
+    ```html
+    <!-- Header Navigation -->
+    <header id="navbar"
+        class="fixed top-0 left-0 w-full z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center justify-between h-16 lg:h-20">
+            <div class="flex items-center justify-between h-16 lg:h-20">
 
-            <!-- Logo -->
-            <a href="#home" class="flex items-center gap-3 flex-shrink-0">
-                <div
-                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-teal-500 text-white flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-city text-lg"></i>
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 flex-shrink-0">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-teal-500 text-white flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-city text-lg"></i>
+                    </div>
+
+                    <div class="hidden sm:flex flex-col leading-tight">
+                        <span class="font-bold text-slate-900 text-base lg:text-lg">
+                            SmartCity <span class="text-blue-600">Care</span>
+                        </span>
+                        <span class="text-[11px] uppercase tracking-wide text-slate-500 font-semibold">
+                            Municipal Services Portal
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                    <a href="#home"
+                        class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-house text-xs"></i> Home
+                    </a>
+
+                    <a href="#services"
+                        class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-concierge-bell text-xs"></i> Services
+                    </a>
+
+                    <a href="#about"
+                        class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-circle-info text-xs"></i> About
+                    </a>
+
+                    <a href="#file-complaint"
+                        class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-file-circle-plus text-xs"></i> File Complaint
+                    </a>
+
+                    <a href="#track-status"
+                        class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-magnifying-glass-location text-xs"></i> Track Status
+                    </a>
+                </nav>
+
+                <!-- Right Side -->
+                <div class="flex items-center gap-3">
+
+                    <!-- Login Button -->
+                    <div id="loggedOutNav" class="hidden sm:flex">
+                        <button id="loginModalTrigger"
+                            class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 hover:shadow-lg">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span class="hidden md:inline">Sign In / Login</span>
+                        </button>
+                    </div>
+
+                    <!-- User Menu -->
+                    <div id="loggedInNav" class="hidden relative">
+                        <div id="userNavBadge"
+                            class="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center cursor-pointer hover:bg-blue-600 hover:text-white transition">
+                            <i class="fa-solid fa-user-circle text-xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="hamburgerBtn"
+                        class="lg:hidden w-10 h-10 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 flex items-center justify-center transition"
+                        aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
                 </div>
+            </div>
 
-                <div class="hidden sm:flex flex-col leading-tight">
-                    <span class="font-bold text-slate-900 text-base lg:text-lg">
-                        SmartCity <span class="text-blue-600">Care</span>
-                    </span>
-                    <span class="text-[11px] uppercase tracking-wide text-slate-500 font-semibold">
-                        Municipal Services Portal
-                    </span>
-                </div>
-            </a>
+            <!-- Mobile Navigation -->
+            <nav id="navMenu" class="hidden lg:hidden border-t border-slate-200 bg-white py-4 space-y-1">
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
                 <a href="#home"
-                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
-                    <i class="fa-solid fa-house text-xs"></i> Home
+                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-house w-4"></i> Home
                 </a>
 
                 <a href="#services"
-                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
-                    <i class="fa-solid fa-concierge-bell text-xs"></i> Services
+                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-concierge-bell w-4"></i> Services
                 </a>
 
                 <a href="#about"
-                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
-                    <i class="fa-solid fa-circle-info text-xs"></i> About
+                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-circle-info w-4"></i> About
                 </a>
 
                 <a href="#file-complaint"
-                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
-                    <i class="fa-solid fa-file-circle-plus text-xs"></i> File Complaint
+                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-file-circle-plus w-4"></i> File Complaint
                 </a>
 
                 <a href="#track-status"
-                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
-                    <i class="fa-solid fa-magnifying-glass-location text-xs"></i> Track Status
+                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-magnifying-glass-location w-4"></i> Track Status
                 </a>
-            </nav>
 
-            <!-- Right Side -->
-            <div class="flex items-center gap-3">
-
-                <!-- Login Button -->
-                <div id="loggedOutNav" class="hidden sm:flex">
-                    <button id="loginModalTrigger"
-                        class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 hover:shadow-lg">
+                <div class="pt-3 px-4 sm:hidden">
+                    <button
+                        class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition">
                         <i class="fa-solid fa-right-to-bracket"></i>
-                        <span class="hidden md:inline">Sign In / Login</span>
+                        Sign In / Login
                     </button>
                 </div>
+            </nav>
 
-                <!-- User Menu -->
-                <div id="loggedInNav" class="hidden relative">
-                    <div id="userNavBadge"
-                        class="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center cursor-pointer hover:bg-blue-600 hover:text-white transition">
-                        <i class="fa-solid fa-user-circle text-xl"></i>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="hamburgerBtn"
-                    class="lg:hidden w-10 h-10 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 flex items-center justify-center transition"
-                    aria-label="Toggle Navigation">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-            </div>
         </div>
-
-        <!-- Mobile Navigation -->
-        <nav id="navMenu"
-            class="hidden lg:hidden border-t border-slate-200 bg-white py-4 space-y-1">
-
-            <a href="#home"
-                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                <i class="fa-solid fa-house w-4"></i> Home
-            </a>
-
-            <a href="#services"
-                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                <i class="fa-solid fa-concierge-bell w-4"></i> Services
-            </a>
-
-            <a href="#about"
-                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                <i class="fa-solid fa-circle-info w-4"></i> About
-            </a>
-
-            <a href="#file-complaint"
-                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                <i class="fa-solid fa-file-circle-plus w-4"></i> File Complaint
-            </a>
-
-            <a href="#track-status"
-                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                <i class="fa-solid fa-magnifying-glass-location w-4"></i> Track Status
-            </a>
-
-            <div class="pt-3 px-4 sm:hidden">
-                <button
-                    class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                    Sign In / Login
-                </button>
-            </div>
-        </nav>
-
-    </div>
-</header>
-```
+    </header>
+    ```
 
 
     <main>
@@ -405,7 +418,8 @@
                                     <h4>Dynamic Status Tracking</h4>
                                     <p>Track progress step-by-step: <strong>Pending</strong> &rarr;
                                         <strong>Confirmed</strong> &rarr; <strong>On Way</strong> &rarr;
-                                        <strong>Resolved</strong>.</p>
+                                        <strong>Resolved</strong>.
+                                    </p>
                                 </div>
                             </div>
                         </div>
