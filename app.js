@@ -10,7 +10,6 @@ let complaints = [];
 let currentUploadedImageBase64 = "";
 let isAdminLoggedIn = false;
 let currentUser = null;
-let locomotiveScroll = null;
 
 // --- DOM Elements & Init ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,10 +24,9 @@ function initApp() {
             const parsed = JSON.parse(stored);
             const cleaned = parsed.filter(c => !["AMC-2026-1001", "AMC-2026-1002", "AMC-2026-1003", "AMC-2026-1004"].includes(c.id));
             localStorage.setItem("amc_complaints", JSON.stringify(cleaned));
-        } catch (e) {}
+        } catch (e) { }
     }
 
-    initLocomotiveScroll();
     loadComplaintsFromStorage();
     setupEventListeners();
     renderUserComplaints();
@@ -36,24 +34,6 @@ function initApp() {
     setCurrentYear();
     checkSessionState();
     setupGlobalSync();
-}
-
-function initLocomotiveScroll() {
-    const scrollContainer = document.querySelector("#scroll-container");
-    if (typeof LocomotiveScroll !== "undefined" && scrollContainer) {
-        try {
-            locomotiveScroll = new LocomotiveScroll({
-                el: scrollContainer,
-                smooth: true,
-                multiplier: 0.9,
-                touchMultiplier: 2,
-                tablet: { smooth: true },
-                smartphone: { smooth: true }
-            });
-        } catch (e) {
-            console.warn("Locomotive Scroll initialization warning:", e);
-        }
-    }
 }
 
 /* ==========================================================================
@@ -106,7 +86,7 @@ async function syncWithCloudDatabase() {
                 const cloudComplaints = Array.isArray(data) ? data : Object.values(data);
                 const validList = cloudComplaints.filter(c => c && c.id);
                 validList.sort((a, b) => (b.timestampSubmitted || 0) - (a.timestampSubmitted || 0));
-                
+
                 complaints = validList;
                 saveComplaintsToStorageLocally();
                 renderUserComplaints();
@@ -306,22 +286,10 @@ function setupEventListeners() {
         });
     }
 
-    // Smooth Link Scrolling with Locomotive Scroll Support
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", (e) => {
-            const targetId = link.getAttribute("href");
-            if (targetId && targetId !== "#") {
-                const targetEl = document.querySelector(targetId);
-                if (targetEl) {
-                    e.preventDefault();
-                    if (navMenu) navMenu.classList.remove("active");
-                    if (locomotiveScroll) {
-                        locomotiveScroll.scrollTo(targetEl);
-                    } else {
-                        targetEl.scrollIntoView({ behavior: "smooth" });
-                    }
-                }
-            }
+    // Close Mobile Nav on link click
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navMenu) navMenu.classList.remove("active");
         });
     });
 
@@ -551,11 +519,7 @@ function handleFormSubmit(e) {
     // Scroll smoothly to track section
     const trackSection = document.getElementById("track-status");
     if (trackSection) {
-        if (locomotiveScroll) {
-            locomotiveScroll.scrollTo(trackSection);
-        } else {
-            trackSection.scrollIntoView({ behavior: "smooth" });
-        }
+        trackSection.scrollIntoView({ behavior: "smooth" });
     }
 }
 
@@ -569,9 +533,9 @@ function renderUserComplaints() {
 
     const filtered = complaints.filter(c => {
         const matchesSearch = c.id.toLowerCase().includes(searchVal) ||
-                              c.userName.toLowerCase().includes(searchVal) ||
-                              c.location.toLowerCase().includes(searchVal) ||
-                              c.serviceCategory.toLowerCase().includes(searchVal);
+            c.userName.toLowerCase().includes(searchVal) ||
+            c.location.toLowerCase().includes(searchVal) ||
+            c.serviceCategory.toLowerCase().includes(searchVal);
 
         const matchesStatus = (filterStatus === "ALL") || (c.status === filterStatus);
         return matchesSearch && matchesStatus;
@@ -635,12 +599,6 @@ function renderUserComplaints() {
             </div>
         `;
     }).join("");
-
-    if (locomotiveScroll) {
-        setTimeout(() => {
-            locomotiveScroll.update();
-        }, 100);
-    }
 }
 
 // Generate Status Timeline HTML
@@ -710,7 +668,7 @@ async function handleUniversalLogin(e) {
 
         document.getElementById("universalAuthModal").classList.add("hidden");
         document.getElementById("universalLoginForm").reset();
-        
+
         checkSessionState();
         showAdminDashboard();
         showToast("Welcome Municipal Administrator! Access granted to Dashboard.", "success");
@@ -758,7 +716,7 @@ async function handleUniversalLogin(e) {
             // New User: Save profile to Firebase Database
             const rawName = email.split('@')[0];
             const formattedName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
-            
+
             const newUserRecord = {
                 email: email,
                 password: password,
@@ -852,10 +810,10 @@ function renderAdminTable() {
 
     const filtered = complaints.filter(c => {
         const matchesSearch = c.id.toLowerCase().includes(searchVal) ||
-                              c.userName.toLowerCase().includes(searchVal) ||
-                              c.userRole.toLowerCase().includes(searchVal) ||
-                              c.serviceCategory.toLowerCase().includes(searchVal) ||
-                              c.location.toLowerCase().includes(searchVal);
+            c.userName.toLowerCase().includes(searchVal) ||
+            c.userRole.toLowerCase().includes(searchVal) ||
+            c.serviceCategory.toLowerCase().includes(searchVal) ||
+            c.location.toLowerCase().includes(searchVal);
 
         const matchesStatus = (filterStatus === "ALL") || (c.status === filterStatus);
         return matchesSearch && matchesStatus;

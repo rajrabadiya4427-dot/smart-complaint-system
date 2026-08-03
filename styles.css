@@ -14,7 +14,7 @@
     --body-bg: #f8fafc;
     --card-bg: #ffffff;
     --border-color: #e2e8f0;
-    
+
     /* Text Colors */
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -58,7 +58,9 @@
 }
 
 /* Reset & Global */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -67,41 +69,6 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-}
-
-/* Locomotive Scroll Support */
-html.has-scroll-smooth {
-    overflow: hidden;
-}
-
-html.has-scroll-dragging {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.has-scroll-smooth body {
-    overflow: hidden;
-}
-
-.has-scroll-smooth [data-scroll-container] {
-    min-height: 100vh;
-}
-
-.navbar {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100 !important;
-}
-
-.modal-overlay,
-.admin-dashboard-container,
-.lightbox-modal,
-.toast-container {
-    z-index: 9999 !important;
 }
 
 body {
@@ -128,7 +95,10 @@ img {
     display: block;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font-family: inherit;
     font-size: inherit;
 }
@@ -149,7 +119,12 @@ button, input, select, textarea {
 }
 
 /* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--text-primary);
@@ -355,7 +330,8 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.4rem;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--primary);
 }
 
@@ -488,9 +464,20 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
 }
 
-.icon-emerald { background: #d1fae5; color: #059669; }
-.icon-amber { background: #fef3c7; color: #d97706; }
-.icon-blue { background: #dbeafe; color: #2563eb; }
+.icon-emerald {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.icon-amber {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.icon-blue {
+    background: #dbeafe;
+    color: #2563eb;
+}
 
 .stat-value {
     font-size: 1.75rem;
@@ -611,8 +598,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes skeletonPulse {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .service-card h3 {
@@ -1216,8 +1208,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes modalPop {
-    from { opacity: 0; transform: scale(0.92); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .modal-close {
@@ -1363,11 +1362,25 @@ h1, h2, h3, h4, h5, h6 {
     border-left: 5px solid var(--primary);
 }
 
-.border-blue { border-left-color: var(--primary); }
-.border-amber { border-left-color: var(--warning); }
-.border-indigo { border-left-color: #6366f1; }
-.border-cyan { border-left-color: #06b6d4; }
-.border-emerald { border-left-color: var(--success); }
+.border-blue {
+    border-left-color: var(--primary);
+}
+
+.border-amber {
+    border-left-color: var(--warning);
+}
+
+.border-indigo {
+    border-left-color: #6366f1;
+}
+
+.border-cyan {
+    border-left-color: #06b6d4;
+}
+
+.border-emerald {
+    border-left-color: var(--success);
+}
 
 .metric-val {
     font-size: 2.25rem;
@@ -1552,12 +1565,24 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 380px;
 }
 
-.toast.toast-success { border-left-color: var(--success); }
-.toast.toast-danger { border-left-color: var(--danger); }
+.toast.toast-success {
+    border-left-color: var(--success);
+}
+
+.toast.toast-danger {
+    border-left-color: var(--danger);
+}
 
 @keyframes toastIn {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Footer */
@@ -1728,10 +1753,13 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
-.text-danger { color: #f43f5e; }
+.text-danger {
+    color: #f43f5e;
+}
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
+
     .hero-container,
     .about-card-wrapper {
         grid-template-columns: 1fr;

@@ -31,6 +31,8 @@
     <meta name="twitter:description" content="File municipal complaints online and track grievance resolution status in real-time. Official AMC civic care portal.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=1200&auto=format&fit=crop&q=80">
 
+    
+    
     <!-- JSON-LD Structured Data for Google Search Indexing -->
     <script type="application/ld+json">
     {
@@ -51,42 +53,12 @@
     }
     </script>
 
-    <!-- Tailwind CSS Engine -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#2563eb',
-                            600: '#1d4ed8',
-                            700: '#1e40af',
-                        },
-                        accent: {
-                            500: '#0d9488',
-                            600: '#0f766e',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Locomotive Scroll Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -94,615 +66,403 @@
     <meta name="google-site-verification" content="knafSryKeXZnWc5tVL9-Sjb6ExJ7OOqCprc-V5AO4IU" />
 </head>
 
-<body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden">
+<body>
 
     <!-- Header Navigation -->
-    <header class="navbar fixed top-0 left-0 right-0 z-[100] bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white shadow-xl transition-all duration-300" id="navbar">
-        <div class="nav-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-            <a href="#home" class="brand-logo flex items-center gap-3 shrink-0 group">
-                <div class="logo-icon w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo">
+                <div class="logo-icon">
                     <i class="fa-solid fa-city"></i>
                 </div>
-                <div class="brand-text flex flex-col">
-                    <span class="brand-title font-heading font-extrabold text-lg sm:text-xl tracking-tight leading-tight">SmartCity <span class="accent-text text-blue-500">Care</span></span>
-                    <span class="brand-subtitle text-xs text-slate-400 font-medium">Municipal Services Portal</span>
+                <div class="brand-text">
+                    <span class="brand-title">SmartCity <span class="accent-text">Care</span></span>
+                    <span class="brand-subtitle">Municipal Services Portal</span>
                 </div>
             </a>
 
-            <nav class="nav-menu hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium" id="navMenu">
-                <a href="#home" class="nav-link active px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors flex items-center gap-2"><i class="fa-solid fa-house text-blue-400"></i> Home</a>
-                <a href="#services" class="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors flex items-center gap-2"><i class="fa-solid fa-concierge-bell text-teal-400"></i> Services</a>
-                <a href="#about" class="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors flex items-center gap-2"><i class="fa-solid fa-circle-info text-amber-400"></i> About</a>
-                <a href="#file-complaint" class="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors flex items-center gap-2"><i class="fa-solid fa-file-circle-plus text-emerald-400"></i> File Grievance</a>
-                <a href="#track-status" class="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors flex items-center gap-2"><i class="fa-solid fa-magnifying-glass-location text-indigo-400"></i> Track Status</a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#services" class="nav-link"><i class="fa-solid fa-concierge-bell"></i> Our Services</a>
+                <a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About Project</a>
+                <a href="#file-complaint" class="nav-link"><i class="fa-solid fa-file-circle-plus"></i> File
+                    Complaint</a>
+                <a href="#track-status" class="nav-link"><i class="fa-solid fa-magnifying-glass-location"></i> Track
+                    Status</a>
             </nav>
 
-            <div class="nav-actions flex items-center gap-3 shrink-0">
+            <div class="nav-actions">
                 <div id="loggedOutNav" class="nav-login-group">
-                    <button class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all flex items-center gap-2 text-sm" id="loginModalTrigger">
+                    <button class="btn btn-primary" id="loginModalTrigger">
                         <i class="fa-solid fa-right-to-bracket"></i>
                         <span>Sign In / Login</span>
                     </button>
                 </div>
-                <div id="loggedInNav" class="nav-user-group hidden flex items-center gap-3">
-                    <div class="user-nav-badge flex items-center gap-2 bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-xl text-xs sm:text-sm text-slate-200" id="userNavBadge">
-                        <i class="fa-solid fa-user-circle text-blue-400 text-base"></i>
-                        <span id="navUserName" class="font-medium max-w-[100px] sm:max-w-[150px] truncate">User</span>
+                <div id="loggedInNav" class="nav-user-group hidden">
+                    <div class="user-nav-badge" id="userNavBadge">
+                        <i class="fa-solid fa-user-circle"></i>
+                        <span id="navUserName">User</span>
                     </div>
-                    <button class="btn btn-admin bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold px-3 py-2 rounded-xl shadow-md hidden flex items-center gap-2" id="adminDashTrigger">
+                    <button class="btn btn-admin hidden" id="adminDashTrigger">
                         <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
                     </button>
-                    <button class="btn btn-outline border border-slate-700 text-slate-300 hover:bg-slate-800 p-2.5 rounded-xl text-sm transition-colors" id="userLogoutBtn" title="Logout">
-                        <i class="fa-solid fa-power-off text-red-400"></i>
+                    <button class="btn btn-outline btn-sm" id="userLogoutBtn" title="Logout">
+                        <i class="fa-solid fa-power-off"></i>
                     </button>
                 </div>
-                <button class="hamburger-btn md:hidden text-slate-300 hover:text-white p-2 rounded-lg text-xl" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Locomotive Scroll Container Wrapper -->
-    <div id="scroll-container" data-scroll-container class="w-full">
-
-        <main>
-            <!-- Hero Section -->
-            <section href="#home" id="home" class="hero-section relative min-h-screen pt-28 sm:pt-36 pb-16 flex items-center justify-center bg-slate-950 text-white overflow-hidden" data-scroll-section>
-                <div class="hero-bg-overlay absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-950 to-slate-950 z-0"></div>
-                
-                <div class="container hero-container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="hero-content lg:col-span-7 space-y-6 text-center lg:text-left" data-scroll data-scroll-speed="1">
-                        <div class="badge-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-semibold shadow-inner" data-scroll data-scroll-speed="0.5">
-                            <i class="fa-solid fa-shield-halved text-blue-400"></i> Official AMC Municipal Care Portal
-                        </div>
-                        <h1 class="hero-title text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight leading-tight" data-scroll data-scroll-speed="1.2">
-                            Smart Municipal <br>
-                            <span class="gradient-text bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">Complaint & Resolution System</span>
-                        </h1>
-                        <p class="hero-description text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed" data-scroll data-scroll-speed="0.8">
-                            Empowering citizens to report civic issues instantly. Submit complaints with detailed descriptions, photo proof, and track resolution status in real-time.
-                        </p>
-                        <div class="hero-cta flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4" data-scroll data-scroll-speed="0.6">
-                            <a href="#file-complaint" class="btn btn-primary w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 text-base">
-                                <i class="fa-solid fa-paper-plane"></i> Submit Complaint Now
-                            </a>
-                            <a href="#track-status" class="btn btn-outline w-full sm:w-auto border border-slate-700 hover:bg-slate-800/80 text-slate-200 font-semibold px-8 py-4 rounded-2xl transition-all flex items-center justify-center gap-3 text-base backdrop-blur-sm">
-                                <i class="fa-solid fa-list-check text-teal-400"></i> Track Active Complaints
-                            </a>
-                        </div>
+    <main>
+        <!-- Hero Section -->
+        <section href="#home" id="home" class="hero-section">
+            <div class="hero-bg-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <i class="fa-solid fa-shield-halved"></i> Official AMC Municipal Care Portal
                     </div>
-
-                    <div class="hero-stats-grid lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6" data-scroll data-scroll-speed="1.5">
-                        <div class="stat-card bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md flex items-center gap-5 hover:border-emerald-500/50 transition-all group">
-                            <div class="stat-icon icon-emerald w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-check-double"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 class="stat-value text-2xl sm:text-3xl font-heading font-extrabold text-white" id="statResolvedCount">0</h3>
-                                <p class="stat-label text-xs sm:text-sm text-slate-400 font-medium">Issues Resolved</p>
-                            </div>
-                        </div>
-                        <div class="stat-card bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md flex items-center gap-5 hover:border-amber-500/50 transition-all group">
-                            <div class="stat-icon icon-amber w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-clock-rotate-left"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 class="stat-value text-2xl sm:text-3xl font-heading font-extrabold text-white" id="statAvgResponseTime">0 hrs</h3>
-                                <p class="stat-label text-xs sm:text-sm text-slate-400 font-medium">Avg. Response Time</p>
-                            </div>
-                        </div>
-                        <div class="stat-card bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md flex items-center gap-5 hover:border-blue-500/50 transition-all group">
-                            <div class="stat-icon icon-blue w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-users"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 class="stat-value text-2xl sm:text-3xl font-heading font-extrabold text-white" id="statCitizenCount">0</h3>
-                                <p class="stat-label text-xs sm:text-sm text-slate-400 font-medium">Active Complaints</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Our Services Section -->
-            <section id="services" class="section services-section py-20 sm:py-28 bg-slate-50 relative" data-scroll-section>
-                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="section-header text-center max-w-3xl mx-auto mb-12 sm:mb-16" data-scroll data-scroll-speed="0.5">
-                        <span class="section-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3">
-                            <i class="fa-solid fa-cubes"></i> Essential Services
-                        </span>
-                        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-slate-900 tracking-tight">Municipal Services We Cover</h2>
-                        <p class="section-subtitle text-base sm:text-lg text-slate-600 mt-3">Select a municipal service department to file your grievance directly to responsible officers.</p>
-                    </div>
-
-                    <div class="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Sanitation & Waste" data-scroll data-scroll-speed="0.3">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Sanitation.avif" alt="Sanitation & Waste Management" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-trash-can text-emerald-400"></i> Sanitation
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Sanitation & Waste Management</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Report uncollected garbage, overflow bins, illegal dumping, and public area cleaning issues.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Sanitation & Waste')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Roads & Potholes" data-scroll data-scroll-speed="0.4">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Infrastructure.avif" alt="Roads & Pothole Repair" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-road text-amber-400"></i> Infrastructure
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Roads & Pothole Repair</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Fix hazardous potholes, damaged footpaths, missing manhole covers, and street hazards.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Roads & Potholes')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Street Lighting" data-scroll data-scroll-speed="0.5">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Electrical.jpg" alt="Street Lighting & Electrical" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-lightbulb text-yellow-400"></i> Electrical
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Street Lighting & Power</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Non-functional street lamps, damaged electric poles, dark corridors, and wire leakages.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Street Lighting')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Water & Drainage" data-scroll data-scroll-speed="0.3">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Water Line.jpg" alt="Water Supply & Sewage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-droplet text-blue-400"></i> Water Line
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Water Supply & Sewage</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Main line pipe leaks, dirty drinking water supply, blocked drains, and sewer overflows.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Water & Drainage')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Parks & Trees" data-scroll data-scroll-speed="0.4">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Parks & Fallen Trees.webp" alt="Parks & Fallen Trees" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-tree text-teal-400"></i> Environment
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Parks & Fallen Trees</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Broken park equipment, dangerous overgrown trees, fallen branches blocking roads.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Parks & Trees')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group" data-service="Public Health & Stray Animals" data-scroll data-scroll-speed="0.5">
-                            <div class="service-img-wrap relative h-52 sm:h-60 overflow-hidden bg-slate-200">
-                                <img src="./imgs/Health.avif" alt="Public Health & Vector Control" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                                <span class="service-badge absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-heart-pulse text-red-400"></i> Healthcare
-                                </span>
-                            </div>
-                            <div class="service-card-body p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-2">Public Health & Vector Control</h3>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Mosquito fogging requests, stray animal rescue, food hygiene complaints, and pest control.</p>
-                                </div>
-                                <a href="#file-complaint" onclick="preselectService('Public Health & Stray Animals')" class="service-link inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors pt-2">
-                                    Report Issue <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Project Section -->
-            <section id="about" class="section about-section py-20 sm:py-28 bg-white relative overflow-hidden" data-scroll-section>
-                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="about-card-wrapper grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                        <div class="about-image-col lg:col-span-5" data-scroll data-scroll-speed="0.8">
-                            <div class="about-visual-card bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-800 relative space-y-6 overflow-hidden">
-                                <div class="visual-icon-glow w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center text-3xl mb-4">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                </div>
-                                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold">Smart Municipal Vision</h3>
-                                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">Transforming municipal governance through digital speed, accountability, and citizen-first issue resolution.</p>
-                                <div class="visual-badges flex flex-wrap gap-2 pt-2">
-                                    <span class="bg-slate-800 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-700 flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Encrypted Data</span>
-                                    <span class="bg-slate-800 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-700 flex items-center gap-1.5"><i class="fa-solid fa-bolt text-amber-400"></i> Real-time Sync</span>
-                                    <span class="bg-slate-800 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-700 flex items-center gap-1.5"><i class="fa-solid fa-mobile-screen text-blue-400"></i> 100% Mobile Ready</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="about-content-col lg:col-span-7 space-y-6" data-scroll data-scroll-speed="0.4">
-                            <span class="section-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-bold uppercase tracking-wider">
-                                <i class="fa-solid fa-circle-nodes"></i> Project Overview
-                            </span>
-                            <h2 class="section-title text-3xl sm:text-4xl font-heading font-extrabold text-slate-900">About AMC Smart Complaint System</h2>
-                            <p class="about-text text-base sm:text-lg text-slate-600 leading-relaxed">
-                                The <strong>Smart Municipal Complaint Management System</strong> is an end-to-end civic service platform built for modern municipal corporations. It bridges the gap between citizens and city maintenance departments.
-                            </p>
-
-                            <div class="about-features-list space-y-4 pt-2">
-                                <div class="feature-item p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4 hover:bg-blue-50/50 transition-colors">
-                                    <div class="feature-icon w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0">
-                                        <i class="fa-solid fa-user-check"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-heading font-bold text-slate-900 text-base">Citizen Profile & Role Tagging</h4>
-                                        <p class="text-slate-600 text-sm">Allows users (Students, Employees, Business owners, Senior Citizens) to specify their role for prioritized routing.</p>
-                                    </div>
-                                </div>
-
-                                <div class="feature-item p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4 hover:bg-blue-50/50 transition-colors">
-                                    <div class="feature-icon w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center text-xl shrink-0">
-                                        <i class="fa-solid fa-camera"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-heading font-bold text-slate-900 text-base">Visual Proof & Photo Upload</h4>
-                                        <p class="text-slate-600 text-sm">Citizens can attach images of broken infrastructure or uncollected waste for instant inspection.</p>
-                                    </div>
-                                </div>
-
-                                <div class="feature-item p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4 hover:bg-blue-50/50 transition-colors">
-                                    <div class="feature-icon w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl shrink-0">
-                                        <i class="fa-solid fa-bars-progress"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-heading font-bold text-slate-900 text-base">Dynamic Status Tracking</h4>
-                                        <p class="text-slate-600 text-sm">Track progress step-by-step: <strong>Pending</strong> &rarr; <strong>Confirmed</strong> &rarr; <strong>On Way</strong> &rarr; <strong>Resolved</strong>.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Submit Complaint Form Section -->
-            <section id="file-complaint" class="section complaint-form-section py-20 sm:py-28 bg-slate-900 text-white relative" data-scroll-section>
-                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="form-wrapper max-w-4xl mx-auto bg-slate-950/80 rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl backdrop-blur-xl" data-scroll data-scroll-speed="0.5">
-                        <div class="form-header text-center max-w-2xl mx-auto mb-10">
-                            <span class="section-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3">
-                                <i class="fa-solid fa-pen-to-square"></i> Civic Portal
-                            </span>
-                            <h2 class="section-title text-3xl sm:text-4xl font-heading font-extrabold text-white">File a Municipal Complaint</h2>
-                            <p class="section-subtitle text-slate-400 text-sm sm:text-base mt-2">Please fill in accurate details so our municipal field unit can respond swiftly.</p>
-                        </div>
-
-                        <form id="complaintForm" class="complaint-form space-y-6" novalidate>
-                            <div class="form-grid grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Full Name -->
-                                <div class="form-group space-y-2">
-                                    <label for="userName" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-user text-blue-400 mr-1.5"></i> Full Name <span class="required text-red-400">*</span></label>
-                                    <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
-                                    <small class="error-msg text-red-400 text-xs hidden">Please enter your full name.</small>
-                                </div>
-
-                                <!-- Role / Occupation -->
-                                <div class="form-group space-y-2">
-                                    <label for="userRole" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-briefcase text-teal-400 mr-1.5"></i> Your Role / Occupation <span class="required text-red-400">*</span></label>
-                                    <select id="userRole" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
-                                        <option value="" disabled selected>Select your role...</option>
-                                        <option value="Student">Student</option>
-                                        <option value="Job / Employee">Job / Employee</option>
-                                        <option value="Business Owner">Business Owner</option>
-                                        <option value="Senior Citizen">Senior Citizen</option>
-                                        <option value="Resident / Citizen">Resident / Citizen</option>
-                                    </select>
-                                    <small class="error-msg text-red-400 text-xs hidden">Please select your role.</small>
-                                </div>
-
-                                <!-- Service Category -->
-                                <div class="form-group space-y-2">
-                                    <label for="serviceCategory" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-list-check text-amber-400 mr-1.5"></i> Service Category <span class="required text-red-400">*</span></label>
-                                    <select id="serviceCategory" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
-                                        <option value="" disabled selected>Select category...</option>
-                                        <option value="Sanitation & Waste">Sanitation & Waste Management</option>
-                                        <option value="Roads & Potholes">Roads & Pothole Repair</option>
-                                        <option value="Street Lighting">Street Lighting & Electrical</option>
-                                        <option value="Water & Drainage">Water Supply & Drainage</option>
-                                        <option value="Parks & Trees">Parks & Fallen Trees</option>
-                                        <option value="Public Health & Stray Animals">Public Health & Stray Animals</option>
-                                    </select>
-                                    <small class="error-msg text-red-400 text-xs hidden">Please select a service category.</small>
-                                </div>
-
-                                <!-- Priority Level -->
-                                <div class="form-group space-y-2">
-                                    <label for="priorityLevel" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1.5"></i> Urgency / Priority</label>
-                                    <select id="priorityLevel" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
-                                        <option value="Normal" selected>Normal Urgency</option>
-                                        <option value="High">High Urgency</option>
-                                        <option value="Critical Emergency">Critical Emergency</option>
-                                    </select>
-                                </div>
-
-                                <!-- Location / Address -->
-                                <div class="form-group md:col-span-2 space-y-2">
-                                    <label for="complaintLocation" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-location-dot text-red-400 mr-1.5"></i> Location / Landmark Address <span class="required text-red-400">*</span></label>
-                                    <input type="text" id="complaintLocation" placeholder="e.g. Near Bus Stand, Sector 4, Main Road" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
-                                    <small class="error-msg text-red-400 text-xs hidden">Please provide the location address.</small>
-                                </div>
-
-                                <!-- Long Description -->
-                                <div class="form-group md:col-span-2 space-y-2">
-                                    <label for="complaintDescription" class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-align-left text-blue-400 mr-1.5"></i> Problem Long Description <span class="required text-red-400">*</span></label>
-                                    <textarea id="complaintDescription" rows="4" placeholder="Describe the municipal issue in detail (e.g. duration, impact, specific spots)..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm resize-y"></textarea>
-                                    <small class="error-msg text-red-400 text-xs hidden">Please provide a detailed description of the problem.</small>
-                                </div>
-
-                                <!-- Image Upload with Preview -->
-                                <div class="form-group md:col-span-2 space-y-2" id="photoGroup">
-                                    <label class="block text-sm font-semibold text-slate-200"><i class="fa-solid fa-camera text-emerald-400 mr-1.5"></i> Attach Image / Photo Proof <span class="required text-red-400">*</span></label>
-                                    <div class="file-upload-zone relative border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-2xl p-6 text-center cursor-pointer transition-colors bg-slate-900/60" id="uploadZone">
-                                        <input type="file" id="photoInput" accept="image/*" class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer" required>
-                                        <div class="upload-content space-y-2" id="uploadPrompt">
-                                            <i class="fa-solid fa-cloud-arrow-up upload-icon text-3xl text-blue-400"></i>
-                                            <p class="text-sm font-medium text-slate-300"><strong>Click to browse</strong> or drag & drop photo here</p>
-                                            <span class="text-xs text-slate-500 block">Supports JPG, PNG, WEBP (Max 5MB)</span>
-                                        </div>
-                                        <div class="image-preview-container hidden relative inline-block" id="previewContainer">
-                                            <img id="imagePreview" src="" alt="Complaint Photo Preview" class="max-h-60 rounded-xl object-cover border border-slate-700 shadow-md" loading="lazy">
-                                            <button type="button" class="btn-remove-img absolute -top-3 -right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" id="removeImgBtn" title="Remove Photo">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <small class="error-msg text-red-400 text-xs hidden">Photo proof is compulsory to submit a grievance.</small>
-                                </div>
-                            </div>
-
-                            <div class="form-actions pt-4">
-                                <button type="submit" class="btn btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:scale-[1.01] transition-all flex items-center justify-center gap-3 text-base" id="submitFormBtn">
-                                    <i class="fa-solid fa-paper-plane"></i> Submit Grievance
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- User Track Status Section -->
-            <section id="track-status" class="section track-section py-20 sm:py-28 bg-slate-50 relative" data-scroll-section>
-                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="section-header text-center max-w-3xl mx-auto mb-10 sm:mb-14" data-scroll data-scroll-speed="0.5">
-                        <span class="section-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3">
-                            <i class="fa-solid fa-magnifying-glass"></i> Live Status Portal
-                        </span>
-                        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-slate-900 tracking-tight">Track Submitted Complaints</h2>
-                        <p class="section-subtitle text-base sm:text-lg text-slate-600 mt-3">Real-time status updates synced automatically with municipal field officers.</p>
-                    </div>
-
-                    <!-- Controls & Search -->
-                    <div class="tracker-controls max-w-5xl mx-auto flex flex-col sm:flex-row gap-4 mb-10 items-stretch sm:items-center justify-between" data-scroll data-scroll-speed="0.4">
-                        <div class="search-box relative flex-1">
-                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                            <input type="text" id="userSearchInput" placeholder="Search by Complaint ID, Citizen Name, or Location..." class="w-full bg-white border border-slate-200 rounded-2xl pl-11 pr-4 py-3.5 text-slate-900 placeholder-slate-400 shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm transition-all">
-                        </div>
-
-                        <div class="filter-box flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-4 py-2.5 shadow-sm">
-                            <label for="userStatusFilter" class="text-sm font-semibold text-slate-700 flex items-center gap-1.5 shrink-0"><i class="fa-solid fa-filter text-blue-500"></i> Status:</label>
-                            <select id="userStatusFilter" class="bg-transparent text-sm font-semibold text-slate-800 focus:outline-none cursor-pointer">
-                                <option value="ALL">All Statuses</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Confirmed">Confirmed</option>
-                                <option value="On Way">On Way</option>
-                                <option value="Resolved">Resolved</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Complaints Display Container -->
-                    <div id="userComplaintsList" class="complaints-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" data-scroll data-scroll-speed="0.6">
-                        <!-- Dynamic complaints rendered via JS -->
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800 relative" data-scroll-section>
-            <div class="container footer-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
-                <div class="footer-col footer-brand space-y-4">
-                    <a href="#home" class="brand-logo inline-flex items-center gap-3">
-                        <div class="logo-icon w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-500/30">
-                            <i class="fa-solid fa-city"></i>
-                        </div>
-                        <div class="brand-text flex flex-col">
-                            <span class="brand-title font-heading font-extrabold text-xl text-white tracking-tight">SmartCity <span class="accent-text text-blue-500">Care</span></span>
-                            <span class="brand-subtitle text-xs text-slate-400">Municipal Services Portal</span>
-                        </div>
-                    </a>
-                    <p class="footer-desc text-slate-400 text-sm leading-relaxed">
-                        Official Municipal Complaint & Resolution System. Digitizing public grievance redressal for faster, transparent civic maintenance.
+                    <h1 class="hero-title">Smart Municipal <br><span class="gradient-text">Complaint & Resolution
+                            System</span></h1>
+                    <p class="hero-description">
+                        Empowering citizens to report civic issues instantly. Submit complaints with detailed
+                        descriptions, images, and track resolution status in real-time.
                     </p>
-                    <div class="social-links flex items-center gap-3 pt-2">
-                        <a href="#" aria-label="Twitter" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <div class="hero-cta">
+                        <a href="#file-complaint" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Complaint Now
+                        </a>
+                        <a href="#track-status" class="btn btn-outline btn-lg">
+                            <i class="fa-solid fa-list-check"></i> Track Active Complaints
+                        </a>
                     </div>
                 </div>
 
-                <div class="footer-col space-y-4">
-                    <h4 class="footer-heading font-heading font-bold text-white text-lg">Quick Navigation</h4>
-                    <ul class="footer-links space-y-2 text-sm text-slate-400">
-                        <li><a href="#home" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Home Portal</a></li>
-                        <li><a href="#services" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Municipal Services</a></li>
-                        <li><a href="#about" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> About Project</a></li>
-                        <li><a href="#file-complaint" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> File Grievance</a></li>
-                        <li><a href="#track-status" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Track Complaint</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col space-y-4">
-                    <h4 class="footer-heading font-heading font-bold text-white text-lg">Municipal Services</h4>
-                    <ul class="footer-links space-y-2 text-sm text-slate-400">
-                        <li><a href="#file-complaint" onclick="preselectService('Sanitation & Waste')" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Waste & Garbage</a></li>
-                        <li><a href="#file-complaint" onclick="preselectService('Roads & Potholes')" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Pothole Repair</a></li>
-                        <li><a href="#file-complaint" onclick="preselectService('Street Lighting')" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Street Lighting</a></li>
-                        <li><a href="#file-complaint" onclick="preselectService('Water & Drainage')" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-500"></i> Water & Sewage</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col space-y-4">
-                    <h4 class="footer-heading font-heading font-bold text-white text-lg">24/7 Helpline Support</h4>
-                    <div class="contact-card bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
-                        <div class="contact-item flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-emerald-400 text-lg"></i>
-                            <div class="text-xs">
-                                <span class="text-slate-400 block">Toll-Free Control Room</span>
-                                <strong class="text-white font-semibold text-sm">1800-234-SMART (76278)</strong>
-                            </div>
+                <div class="hero-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-emerald"><i class="fa-solid fa-check-double"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statResolvedCount">0</h3>
+                            <p class="stat-label">Issues Resolved</p>
                         </div>
-                        <div class="contact-item flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-blue-400 text-lg"></i>
-                            <div class="text-xs">
-                                <span class="text-slate-400 block">Official Admin Contact</span>
-                                <strong class="text-white font-semibold text-sm">smartservice@gmail.com</strong>
-                            </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-amber"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statAvgResponseTime">0 hrs</h3>
+                            <p class="stat-label">Avg. Response Time</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-blue"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statCitizenCount">0</h3>
+                            <p class="stat-label">Active Complaints</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom border-t border-slate-900 pt-6">
-                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-                    <p>&copy; <span id="currentYear">2026</span> SmartCity Care Municipal Corporation. All rights reserved.</p>
-                    <p class="footer-tag">Designed with <i class="fa-solid fa-heart text-red-500"></i> for Civic Excellence</p>
-                </div>
-            </div>
-        </footer>
-
-    </div> <!-- End Locomotive Scroll Container -->
-
-    <!-- Universal Mandatory Login Modal -->
-    <div class="modal-overlay hidden fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4" id="universalAuthModal">
-        <div class="modal-card bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative border border-slate-100 animate-in fade-in zoom-in-95 duration-200">
-            <button class="modal-close absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 rounded-full flex items-center justify-center" id="closeAuthModal"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-header text-center space-y-2 mb-6">
-                <div class="admin-badge-icon w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 mx-auto flex items-center justify-center text-2xl">
-                    <i class="fa-solid fa-user-lock"></i>
-                </div>
-                <h3 class="text-2xl font-heading font-bold text-slate-900">SmartCity Care Portal Sign In</h3>
-                <p class="text-slate-500 text-xs sm:text-sm">Enter your credentials to access municipal services & tracking</p>
-            </div>
-
-            <form id="universalLoginForm" class="modal-form space-y-4">
-                <div class="form-group space-y-1.5">
-                    <label for="loginEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-700"><i class="fa-solid fa-envelope text-blue-500 mr-1"></i> Email Address <span class="required text-red-500">*</span></label>
-                    <input type="email" id="loginEmail" placeholder="your.name@gmail.com" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm">
+        <!-- Our Services Section -->
+        <section id="services" class="section services-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge"><i class="fa-solid fa-cubes"></i> Essential Services</span>
+                    <h2 class="section-title">Municipal Services We Cover</h2>
+                    <p class="section-subtitle">Select a municipal service department to file your grievance directly to
+                        responsible officers.</p>
                 </div>
 
-                <div class="form-group space-y-1.5">
-                    <label for="loginPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-700"><i class="fa-solid fa-lock text-blue-500 mr-1"></i> Password <span class="required text-red-500">*</span></label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm">
-                </div>
-
-                <div class="admin-login-err hidden p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2" id="loginErrMsg">
-                    <i class="fa-solid fa-circle-exclamation text-red-500"></i> Invalid login credentials!
-                </div>
-
-                <button type="submit" class="btn btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition-all text-sm flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Admin Dashboard Overlay / View -->
-    <div class="admin-dashboard-container hidden fixed inset-0 z-[9999] bg-slate-950 overflow-y-auto" id="adminDashboardView">
-        <div class="admin-topbar sticky top-0 z-50 bg-slate-900 border-b border-slate-800 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
-            <div class="admin-brand flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl shadow-lg">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div>
-                    <h2 class="font-heading font-bold text-white text-lg sm:text-xl">AMC Admin Control Center</h2>
-                    <span class="text-xs text-slate-400">Logged in as: <strong id="currentAdminEmail" class="text-emerald-400 font-semibold">smartservice@gmail.com</strong></span>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 w-full sm:w-auto">
-                <button class="btn btn-outline border border-slate-700 text-white hover:bg-slate-800 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2" onclick="syncWithCloudDatabase(); showToast('Fetched latest global cloud complaints!', 'info');">
-                    <i class="fa-solid fa-arrows-rotate text-blue-400"></i> Refresh Cloud Data
-                </button>
-                <button class="btn btn-danger bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md" id="adminLogoutBtn">
-                    <i class="fa-solid fa-right-from-bracket"></i> Exit Dashboard
-                </button>
-            </div>
-        </div>
-
-        <div class="admin-body max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
-            <!-- Metrics Bar -->
-            <div class="admin-metrics-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                <div class="admin-metric-card bg-slate-900 border-l-4 border-blue-500 rounded-2xl p-4 sm:p-5 border-y border-r border-slate-800">
-                    <div class="metric-val text-2xl sm:text-3xl font-heading font-extrabold text-white" id="admTotal">0</div>
-                    <div class="metric-lbl text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Total Complaints</div>
-                </div>
-                <div class="admin-metric-card bg-slate-900 border-l-4 border-amber-500 rounded-2xl p-4 sm:p-5 border-y border-r border-slate-800">
-                    <div class="metric-val text-2xl sm:text-3xl font-heading font-extrabold text-amber-400" id="admPending">0</div>
-                    <div class="metric-lbl text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Pending Review</div>
-                </div>
-                <div class="admin-metric-card bg-slate-900 border-l-4 border-indigo-500 rounded-2xl p-4 sm:p-5 border-y border-r border-slate-800">
-                    <div class="metric-val text-2xl sm:text-3xl font-heading font-extrabold text-indigo-400" id="admConfirmed">0</div>
-                    <div class="metric-lbl text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Confirmed / Assigned</div>
-                </div>
-                <div class="admin-metric-card bg-slate-900 border-l-4 border-cyan-500 rounded-2xl p-4 sm:p-5 border-y border-r border-slate-800">
-                    <div class="metric-val text-2xl sm:text-3xl font-heading font-extrabold text-cyan-400" id="admOnWay">0</div>
-                    <div class="metric-lbl text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Officer On Way</div>
-                </div>
-                <div class="admin-metric-card bg-slate-900 border-l-4 border-emerald-500 rounded-2xl p-4 sm:p-5 border-y border-r border-slate-800 col-span-2 sm:col-span-1">
-                    <div class="metric-val text-2xl sm:text-3xl font-heading font-extrabold text-emerald-400" id="admResolved">0</div>
-                    <div class="metric-lbl text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Resolved Cases</div>
-                </div>
-            </div>
-
-            <!-- Admin Complaints Management Section -->
-            <div class="admin-panel-card bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden">
-                <div class="admin-panel-header p-4 sm:p-6 border-b border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <h3 class="font-heading font-bold text-white text-lg sm:text-xl flex items-center gap-2"><i class="fa-solid fa-table-list text-emerald-400"></i> Manage Citizen Complaints</h3>
-
-                    <div class="admin-filters flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                        <div class="search-box relative flex-1 sm:w-64">
-                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-                            <input type="text" id="adminSearchInput" placeholder="Filter by ID, Citizen, Service..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-500">
+                <div class="services-grid">
+                    <div class="service-card" data-service="Sanitation & Waste">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Sanitation.avif" alt="Sanitation & Waste Management" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-trash-can"></i> Sanitation</span>
                         </div>
-                        <select id="adminStatusFilter" class="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white text-xs font-medium focus:outline-none focus:border-emerald-500">
+                        <div class="service-card-body">
+                            <h3>Sanitation & Waste Management</h3>
+                            <p>Report uncollected garbage, overflow bins, illegal dumping, and public area cleaning
+                                issues.</p>
+                            <a href="#file-complaint" onclick="preselectService('Sanitation & Waste')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Roads & Potholes">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Infrastructure.avif" alt="Roads & Pothole Repair" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-road"></i> Infrastructure</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Roads & Pothole Repair</h3>
+                            <p>Fix hazardous potholes, damaged footpaths, missing manhole covers, and street hazards.
+                            </p>
+                            <a href="#file-complaint" onclick="preselectService('Roads & Potholes')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Street Lighting">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Electrical.jpg" alt="Street Lighting & Electrical" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-lightbulb"></i> Electrical</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Street Lighting & Power</h3>
+                            <p>Non-functional street lamps, damaged electric poles, dark corridors, and wire leakages.
+                            </p>
+                            <a href="#file-complaint" onclick="preselectService('Street Lighting')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Water & Drainage">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Water Line.jpg" alt="Water Supply & Sewage" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-droplet"></i> Water Line</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Water Supply & Sewage</h3>
+                            <p>Main line pipe leaks, dirty drinking water supply, blocked drains, and sewer overflows.
+                            </p>
+                            <a href="#file-complaint" onclick="preselectService('Water & Drainage')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Parks & Trees">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Parks & Fallen Trees.webp" alt="Parks & Fallen Trees" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-tree"></i> Environment</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Parks & Fallen Trees</h3>
+                            <p>Broken park equipment, dangerous overgrown trees, fallen branches blocking roads.</p>
+                            <a href="#file-complaint" onclick="preselectService('Parks & Trees')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Public Health & Stray Animals">
+                        <div class="service-img-wrap skeleton-loader">
+                            <img src="./imgs/Health.avif" alt="Public Health & Vector Control" loading="lazy">
+                            <span class="service-badge"><i class="fa-solid fa-heart-pulse"></i> Healthcare</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Public Health & Vector Control</h3>
+                            <p>Mosquito fogging requests, stray animal rescue, food hygiene complaints, and pest
+                                control.</p>
+                            <a href="#file-complaint" onclick="preselectService('Public Health & Stray Animals')"
+                                class="service-link">Report Issue <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Project Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="about-card-wrapper">
+                    <div class="about-image-col">
+                        <div class="about-visual-card">
+                            <div class="visual-icon-glow">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <h3>Smart Municipal Vision</h3>
+                            <p>Transforming municipal governance through digital speed, accountability, and
+                                citizen-first issue resolution.</p>
+                            <div class="visual-badges">
+                                <span><i class="fa-solid fa-shield-halved"></i> Encrypted Data</span>
+                                <span><i class="fa-solid fa-bolt"></i> Real-time Sync</span>
+                                <span><i class="fa-solid fa-mobile-screen"></i> 100% Mobile Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content-col">
+                        <span class="section-badge"><i class="fa-solid fa-circle-nodes"></i> Project Overview</span>
+                        <h2 class="section-title">About AMC Smart Complaint System</h2>
+                        <p class="about-text">
+                            The <strong>Smart Municipal Complaint Management System</strong> is an end-to-end civic
+                            service platform built for modern municipal corporations. It bridges the gap between
+                            citizens and city maintenance departments.
+                        </p>
+
+                        <div class="about-features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-user-check"></i></div>
+                                <div>
+                                    <h4>Citizen Profile & Role Tagging</h4>
+                                    <p>Allows users (Students, Employees/Job workers, Business owners, Senior Citizens)
+                                        to specify their role for prioritized routing.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-camera"></i></div>
+                                <div>
+                                    <h4>Visual Proof & Photo Upload</h4>
+                                    <p>Citizens can attach images of broken infrastructure or uncollected waste for
+                                        instant inspection.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-bars-progress"></i></div>
+                                <div>
+                                    <h4>Dynamic Status Tracking</h4>
+                                    <p>Track progress step-by-step: <strong>Pending</strong> &rarr;
+                                        <strong>Confirmed</strong> &rarr; <strong>On Way</strong> &rarr;
+                                        <strong>Resolved</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submit Complaint Form Section -->
+        <section id="file-complaint" class="section complaint-form-section">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div class="form-header text-center">
+                        <span class="section-badge"><i class="fa-solid fa-pen-to-square"></i> Civic Portal</span>
+                        <h2 class="section-title">File a Municipal Complaint</h2>
+                        <p class="section-subtitle">Please fill in accurate details so our municipal field unit can
+                            respond swiftly.</p>
+                    </div>
+
+                    <form id="complaintForm" class="complaint-form" novalidate>
+                        <div class="form-grid">
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="userName"><i class="fa-solid fa-user"></i> Full Name <span
+                                        class="required">*</span></label>
+                                <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required>
+                                <small class="error-msg">Please enter your full name.</small>
+                            </div>
+
+                            <!-- Role / Occupation -->
+                            <div class="form-group">
+                                <label for="userRole"><i class="fa-solid fa-briefcase"></i> Your Role / Occupation <span
+                                        class="required">*</span></label>
+                                <select id="userRole" required>
+                                    <option value="" disabled selected>Select your role...</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Job / Employee">Job / Employee</option>
+                                    <option value="Business Owner">Business Owner</option>
+                                    <option value="Senior Citizen">Senior Citizen</option>
+                                    <option value="Resident / Citizen">Resident / Citizen</option>
+                                </select>
+                                <small class="error-msg">Please select your role.</small>
+                            </div>
+
+                            <!-- Service Category -->
+                            <div class="form-group">
+                                <label for="serviceCategory"><i class="fa-solid fa-list-check"></i> Service Category
+                                    <span class="required">*</span></label>
+                                <select id="serviceCategory" required>
+                                    <option value="" disabled selected>Select category...</option>
+                                    <option value="Sanitation & Waste">Sanitation & Waste Management</option>
+                                    <option value="Roads & Potholes">Roads & Pothole Repair</option>
+                                    <option value="Street Lighting">Street Lighting & Electrical</option>
+                                    <option value="Water & Drainage">Water Supply & Drainage</option>
+                                    <option value="Parks & Trees">Parks & Fallen Trees</option>
+                                    <option value="Public Health & Stray Animals">Public Health & Stray Animals</option>
+                                </select>
+                                <small class="error-msg">Please select a service category.</small>
+                            </div>
+
+                            <!-- Priority Level -->
+                            <div class="form-group">
+                                <label for="priorityLevel"><i class="fa-solid fa-triangle-exclamation"></i> Urgency /
+                                    Priority</label>
+                                <select id="priorityLevel">
+                                    <option value="Normal" selected>Normal Urgency</option>
+                                    <option value="High">High Urgency</option>
+                                    <option value="Critical Emergency">Critical Emergency</option>
+                                </select>
+                            </div>
+
+                            <!-- Location / Address -->
+                            <div class="form-group col-span-2">
+                                <label for="complaintLocation"><i class="fa-solid fa-location-dot"></i> Location /
+                                    Landmark Address <span class="required">*</span></label>
+                                <input type="text" id="complaintLocation"
+                                    placeholder="e.g. Near Bus Stand, Sector 4, Main Road" required>
+                                <small class="error-msg">Please provide the location address.</small>
+                            </div>
+
+                            <!-- Long Description -->
+                            <div class="form-group col-span-2">
+                                <label for="complaintDescription"><i class="fa-solid fa-align-left"></i> Problem Long
+                                    Description <span class="required">*</span></label>
+                                <textarea id="complaintDescription" rows="4"
+                                    placeholder="Describe the municipal issue in detail (e.g. duration, impact, specific spots)..."
+                                    required></textarea>
+                                <small class="error-msg">Please provide a detailed description of the problem.</small>
+                            </div>
+
+                            <!-- Image Upload with Preview (Compulsory) -->
+                            <div class="form-group col-span-2" id="photoGroup">
+                                <label><i class="fa-solid fa-camera"></i> Attach Image / Photo Proof <span
+                                        class="required">*</span></label>
+                                <div class="file-upload-zone" id="uploadZone">
+                                    <input type="file" id="photoInput" accept="image/*" class="file-input" required>
+                                    <div class="upload-content" id="uploadPrompt">
+                                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                                        <p><strong>Click to browse</strong> or drag & drop photo here</p>
+                                        <span>Supports JPG, PNG, WEBP (Max 5MB)</span>
+                                    </div>
+                                    <div class="image-preview-container hidden" id="previewContainer">
+                                        <img id="imagePreview" src="" alt="Complaint Photo Preview" loading="lazy">
+                                        <button type="button" class="btn-remove-img" id="removeImgBtn"
+                                            title="Remove Photo">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <small class="error-msg">Photo proof is compulsory to submit a grievance.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitFormBtn">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Grievance
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Track Status Section -->
+        <section id="track-status" class="section track-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge"><i class="fa-solid fa-magnifying-glass"></i> Live Status Portal</span>
+                    <h2 class="section-title">Track Submitted Complaints</h2>
+                    <p class="section-subtitle">Real-time status updates synced automatically with municipal field
+                        officers.</p>
+                </div>
+
+                <!-- Controls & Search -->
+                <div class="tracker-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="userSearchInput"
+                            placeholder="Search by Complaint ID, Citizen Name, or Location...">
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="userStatusFilter"><i class="fa-solid fa-filter"></i> Filter Status:</label>
+                        <select id="userStatusFilter">
                             <option value="ALL">All Statuses</option>
                             <option value="Pending">Pending</option>
                             <option value="Confirmed">Confirmed</option>
@@ -712,20 +472,129 @@
                     </div>
                 </div>
 
-                <div class="table-responsive overflow-x-auto w-full">
-                    <table class="admin-table w-full text-left border-collapse text-sm text-slate-300">
-                        <thead class="bg-slate-950 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-800">
+                <!-- Complaints Display Container -->
+                <div id="userComplaintsList" class="complaints-grid">
+                    <!-- Dynamic complaints rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Universal Mandatory Login Modal -->
+    <div class="modal-overlay hidden" id="universalAuthModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeAuthModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header text-center">
+                <div class="admin-badge-icon"><i class="fa-solid fa-user-lock"></i></div>
+                <h3>SmartCity Care Portal Sign In</h3>
+                <p>Enter your credentials to access municipal services & tracking</p>
+            </div>
+
+            <form id="universalLoginForm" class="modal-form">
+                <div class="form-group">
+                    <label for="loginEmail"><i class="fa-solid fa-envelope"></i> Email Address <span
+                            class="required">*</span></label>
+                    <input type="email" id="loginEmail" placeholder="your.name@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword"><i class="fa-solid fa-lock"></i> Password <span
+                            class="required">*</span></label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+
+                <div class="admin-login-err hidden" id="loginErrMsg">
+                    <i class="fa-solid fa-circle-exclamation"></i> Invalid login credentials!
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Overlay / View -->
+    <div class="admin-dashboard-container hidden" id="adminDashboardView">
+        <div class="admin-topbar">
+            <div class="admin-brand">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                    <h2>AMC Admin Control Center</h2>
+                    <span>Logged in as: <strong id="currentAdminEmail">smartservice@gmail.com</strong></span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <button class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.3);"
+                    onclick="syncWithCloudDatabase(); showToast('Fetched latest global cloud complaints!', 'info');">
+                    <i class="fa-solid fa-arrows-rotate"></i> Refresh Global Data
+                </button>
+                <button class="btn btn-danger" id="adminLogoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Exit Dashboard
+                </button>
+            </div>
+        </div>
+
+        <div class="admin-body">
+            <!-- Metrics Bar -->
+            <div class="admin-metrics-grid">
+                <div class="admin-metric-card border-blue">
+                    <div class="metric-val" id="admTotal">0</div>
+                    <div class="metric-lbl">Total Complaints</div>
+                </div>
+                <div class="admin-metric-card border-amber">
+                    <div class="metric-val" id="admPending">0</div>
+                    <div class="metric-lbl">Pending Review</div>
+                </div>
+                <div class="admin-metric-card border-indigo">
+                    <div class="metric-val" id="admConfirmed">0</div>
+                    <div class="metric-lbl">Confirmed / Assigned</div>
+                </div>
+                <div class="admin-metric-card border-cyan">
+                    <div class="metric-val" id="admOnWay">0</div>
+                    <div class="metric-lbl">Officer On Way</div>
+                </div>
+                <div class="admin-metric-card border-emerald">
+                    <div class="metric-val" id="admResolved">0</div>
+                    <div class="metric-lbl">Resolved Cases</div>
+                </div>
+            </div>
+
+            <!-- Admin Complaints Management Section -->
+            <div class="admin-panel-card">
+                <div class="admin-panel-header">
+                    <h3><i class="fa-solid fa-table-list"></i> Manage Citizen Complaints</h3>
+
+                    <div class="admin-filters">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="adminSearchInput" placeholder="Filter by ID, Citizen, Service...">
+                        </div>
+                        <select id="adminStatusFilter">
+                            <option value="ALL">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="On Way">On Way</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
                             <tr>
-                                <th class="p-4">Complaint ID</th>
-                                <th class="p-4">Citizen & Role</th>
-                                <th class="p-4">Service & Priority</th>
-                                <th class="p-4">Location & Date</th>
-                                <th class="p-4">Photo</th>
-                                <th class="p-4">Current Status</th>
-                                <th class="p-4">Update Status / Action</th>
+                                <th>Complaint ID</th>
+                                <th>Citizen & Role</th>
+                                <th>Service & Priority</th>
+                                <th>Location & Date</th>
+                                <th>Photo</th>
+                                <th>Current Status</th>
+                                <th>Update Status / Action</th>
                             </tr>
                         </thead>
-                        <tbody id="adminComplaintsTableBody" class="divide-y divide-slate-800/60">
+                        <tbody id="adminComplaintsTableBody">
                             <!-- Dynamic Table Rows -->
                         </tbody>
                     </table>
@@ -735,32 +604,111 @@
     </div>
 
     <!-- Image Lightbox Modal -->
-    <div class="lightbox-modal hidden fixed inset-0 z-[9999] bg-slate-950/90 backdrop-blur-lg flex items-center justify-center p-4" id="imageLightboxModal">
-        <div class="lightbox-content relative max-w-4xl w-full text-center space-y-4">
-            <button class="lightbox-close absolute -top-12 right-0 text-slate-400 hover:text-white text-2xl w-10 h-10 rounded-full flex items-center justify-center" id="closeLightboxBtn"><i class="fa-solid fa-xmark"></i></button>
-            <img id="lightboxImg" src="" alt="Full size complaint photo" class="max-h-[80vh] mx-auto rounded-2xl border border-slate-800 shadow-2xl object-contain">
-            <div class="lightbox-caption text-slate-300 text-sm font-medium" id="lightboxCaption"></div>
+    <div class="lightbox-modal hidden" id="imageLightboxModal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="closeLightboxBtn"><i class="fa-solid fa-xmark"></i></button>
+            <img id="lightboxImg" src="" alt="Full size complaint photo">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
         </div>
     </div>
 
     <!-- Details View Modal -->
-    <div class="modal-overlay hidden fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4" id="detailsModal">
-        <div class="modal-card modal-lg bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto">
-            <button class="modal-close absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 rounded-full flex items-center justify-center" id="closeDetailsModal"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-header border-b border-slate-100 pb-4 mb-6" id="detailsHeader">
+    <div class="modal-overlay hidden" id="detailsModal">
+        <div class="modal-card modal-lg">
+            <button class="modal-close" id="closeDetailsModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header" id="detailsHeader">
                 <!-- Dynamic Header -->
             </div>
-            <div class="modal-body space-y-4" id="detailsBody">
+            <div class="modal-body" id="detailsBody">
                 <!-- Dynamic Body -->
             </div>
         </div>
     </div>
 
     <!-- Toast Notification Container -->
-    <div class="toast-container fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 max-w-sm w-full pointer-events-none" id="toastContainer"></div>
+    <div class="toast-container" id="toastContainer"></div>
 
-    <!-- Locomotive Scroll Engine Script -->
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col footer-brand">
+                <a href="#home" class="brand-logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">SmartCity <span class="accent-text">Care</span></span>
+                        <span class="brand-subtitle">Municipal Services Portal</span>
+                    </div>
+                </a>
+                <p class="footer-desc">
+                    Official Municipal Complaint & Resolution System. Digitizing public grievance redressal for faster,
+                    transparent civic maintenance.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home Portal</a></li>
+                    <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Municipal Services</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Project</a></li>
+                    <li><a href="#file-complaint"><i class="fa-solid fa-chevron-right"></i> File Grievance</a></li>
+                    <li><a href="#track-status"><i class="fa-solid fa-chevron-right"></i> Track Complaint</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Municipal Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#file-complaint" onclick="preselectService('Sanitation & Waste')"><i
+                                class="fa-solid fa-chevron-right"></i> Waste & Garbage</a></li>
+                    <li><a href="#file-complaint" onclick="preselectService('Roads & Potholes')"><i
+                                class="fa-solid fa-chevron-right"></i> Pothole Repair</a></li>
+                    <li><a href="#file-complaint" onclick="preselectService('Street Lighting')"><i
+                                class="fa-solid fa-chevron-right"></i> Street Lighting</a></li>
+                    <li><a href="#file-complaint" onclick="preselectService('Water & Drainage')"><i
+                                class="fa-solid fa-chevron-right"></i> Water & Sewage</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">24/7 Helpline Support</h4>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span>Toll-Free Control Room</span>
+                            <strong>1800-234-SMART (76278)</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span>Official Admin Contact</span>
+                            <strong>smartservice@gmail.com</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; <span id="currentYear">2026</span> SmartCity Care Municipal Corporation. All rights reserved.
+                </p>
+                <p class="footer-tag">Designed with <i class="fa-solid fa-heart text-danger"></i> for Civic Excellence
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <script src="app.js"></script>
 </body>
 
