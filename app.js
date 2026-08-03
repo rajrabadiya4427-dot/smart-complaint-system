@@ -10,6 +10,7 @@ let complaints = [];
 let currentUploadedImageBase64 = "";
 let isAdminLoggedIn = false;
 let currentUser = null;
+let locomotiveScroll = null;
 
 // --- DOM Elements & Init ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,6 +28,7 @@ function initApp() {
         } catch (e) {}
     }
 
+    initLocomotiveScroll();
     loadComplaintsFromStorage();
     setupEventListeners();
     renderUserComplaints();
@@ -34,6 +36,24 @@ function initApp() {
     setCurrentYear();
     checkSessionState();
     setupGlobalSync();
+}
+
+function initLocomotiveScroll() {
+    const scrollContainer = document.querySelector("#scroll-container");
+    if (typeof LocomotiveScroll !== "undefined" && scrollContainer) {
+        try {
+            locomotiveScroll = new LocomotiveScroll({
+                el: scrollContainer,
+                smooth: true,
+                multiplier: 0.9,
+                touchMultiplier: 2,
+                tablet: { smooth: true },
+                smartphone: { smooth: true }
+            });
+        } catch (e) {
+            console.warn("Locomotive Scroll initialization warning:", e);
+        }
+    }
 }
 
 /* ==========================================================================
@@ -286,10 +306,22 @@ function setupEventListeners() {
         });
     }
 
-    // Close Mobile Nav on link click
-    document.querySelectorAll(".nav-link").forEach(link => {
-        link.addEventListener("click", () => {
-            if (navMenu) navMenu.classList.remove("active");
+    // Smooth Link Scrolling with Locomotive Scroll Support
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href");
+            if (targetId && targetId !== "#") {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    if (navMenu) navMenu.classList.remove("active");
+                    if (locomotiveScroll) {
+                        locomotiveScroll.scrollTo(targetEl);
+                    } else {
+                        targetEl.scrollIntoView({ behavior: "smooth" });
+                    }
+                }
+            }
         });
     });
 
@@ -519,7 +551,11 @@ function handleFormSubmit(e) {
     // Scroll smoothly to track section
     const trackSection = document.getElementById("track-status");
     if (trackSection) {
-        trackSection.scrollIntoView({ behavior: "smooth" });
+        if (locomotiveScroll) {
+            locomotiveScroll.scrollTo(trackSection);
+        } else {
+            trackSection.scrollIntoView({ behavior: "smooth" });
+        }
     }
 }
 
@@ -599,6 +635,12 @@ function renderUserComplaints() {
             </div>
         `;
     }).join("");
+
+    if (locomotiveScroll) {
+        setTimeout(() => {
+            locomotiveScroll.update();
+        }, 100);
+    }
 }
 
 // Generate Status Timeline HTML
