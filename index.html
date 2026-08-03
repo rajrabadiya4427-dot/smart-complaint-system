@@ -77,63 +77,171 @@
 
 <body>
 
-    <!-- Header Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="brand-logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-city"></i>
+  <!-- Header Navigation -->
+<header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-center justify-between h-16 lg:h-20">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 flex-shrink-0">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-teal-500 text-white flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-city text-lg"></i>
                 </div>
-                <div class="brand-text">
-                    <span class="brand-title">SmartCity <span class="accent-text">Care</span></span>
-                    <span class="brand-subtitle">Municipal Services Portal</span>
+
+                <div class="hidden sm:flex flex-col leading-tight">
+                    <span class="font-bold text-slate-900 text-base lg:text-lg">
+                        SmartCity <span class="text-blue-600">Care</span>
+                    </span>
+                    <span class="text-[11px] uppercase tracking-wide text-slate-500 font-semibold">
+                        Municipal Services Portal
+                    </span>
                 </div>
             </a>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="#services" class="nav-link"><i class="fa-solid fa-concierge-bell"></i> Our Services</a>
-                <a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About Project</a>
-                <a href="#file-complaint" class="nav-link"><i class="fa-solid fa-file-circle-plus"></i> File
-                    Complaint</a>
-                <a href="#track-status" class="nav-link"><i class="fa-solid fa-magnifying-glass-location"></i> Track
-                    Status</a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a href="#home"
+                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-house text-xs"></i> Home
+                </a>
+
+                <a href="#services"
+                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-concierge-bell text-xs"></i> Our Services
+                </a>
+
+                <a href="#about"
+                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-circle-info text-xs"></i> About Project
+                </a>
+
+                <a href="#file-complaint"
+                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-file-circle-plus text-xs"></i> File Complaint
+                </a>
+
+                <a href="#track-status"
+                    class="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+                    <i class="fa-solid fa-magnifying-glass-location text-xs"></i> Track Status
+                </a>
             </nav>
 
-            <div class="nav-actions">
-                <div id="loggedOutNav" class="nav-login-group">
-                    <button class="btn btn-primary" id="loginModalTrigger">
+            <!-- Right Side -->
+            <div class="flex items-center gap-3">
+
+                <!-- Desktop Login -->
+                <div id="loggedOutNav" class="hidden sm:flex">
+                    <button id="loginModalTrigger"
+                        class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 hover:shadow-lg">
                         <i class="fa-solid fa-right-to-bracket"></i>
-                        <span>Sign In / Login</span>
+                        <span class="hidden md:inline">Sign In / Login</span>
                     </button>
                 </div>
-                <div id="loggedInNav" class="nav-user-group hidden">
-                    <div class="user-nav-badge" id="userNavBadge" title="User Menu">
-                        <i class="fa-solid fa-user-circle"></i>
-                        <div class="user-nav-dropdown" id="userNavDropdown">
-                            <div class="dropdown-header">
-                                <i class="fa-solid fa-user-circle"></i>
-                                <div class="dropdown-user-details">
-                                    <span class="dropdown-label">Signed in as</span>
-                                    <strong id="dropdownUserName" class="dropdown-username">User</strong>
+
+                <!-- Desktop User Icon Only -->
+                <div id="loggedInNav" class="hidden relative">
+                    <div id="userNavBadge"
+                        class="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center cursor-pointer hover:bg-blue-600 hover:text-white transition"
+                        title="User Menu">
+                        <i class="fa-solid fa-user-circle text-xl"></i>
+
+                        <!-- Desktop Dropdown -->
+                        <div id="userNavDropdown"
+                            class="hidden absolute right-0 top-12 w-56 rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl">
+
+                            <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+                                <i class="fa-solid fa-user-circle text-3xl text-blue-600"></i>
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                                        Signed in
+                                    </p>
+                                    <p id="dropdownUserName"
+                                        class="text-sm font-semibold text-slate-800 truncate">
+                                        User
+                                    </p>
                                 </div>
                             </div>
-                            <div class="dropdown-divider"></div>
-                            <button class="btn btn-admin hidden" id="adminDashTrigger">
+
+                            <button class="btn btn-admin hidden w-full mt-3" id="adminDashTrigger">
                                 <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
                             </button>
-                            <button class="btn btn-logout" id="userLogoutBtn" title="Logout">
+
+                            <button class="btn btn-logout w-full mt-2" id="userLogoutBtn" title="Logout">
                                 <i class="fa-solid fa-power-off"></i> Logout
                             </button>
                         </div>
                     </div>
                 </div>
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
-                    <i class="fa-solid fa-bars"></i>
+
+                <!-- Mobile Menu Button -->
+                <button id="hamburgerBtn"
+                    class="lg:hidden w-10 h-10 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 flex items-center justify-center transition"
+                    aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
-    </header>
+
+        <!-- Mobile Navigation -->
+        <nav id="navMenu" class="hidden lg:hidden border-t border-slate-200 bg-white py-4 space-y-1">
+
+            <a href="#home"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <i class="fa-solid fa-house w-4"></i> Home
+            </a>
+
+            <a href="#services"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <i class="fa-solid fa-concierge-bell w-4"></i> Our Services
+            </a>
+
+            <a href="#about"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <i class="fa-solid fa-circle-info w-4"></i> About Project
+            </a>
+
+            <a href="#file-complaint"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <i class="fa-solid fa-file-circle-plus w-4"></i> File Complaint
+            </a>
+
+            <a href="#track-status"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <i class="fa-solid fa-magnifying-glass-location w-4"></i> Track Status
+            </a>
+
+            <div class="pt-3 px-4 border-t border-slate-100 mt-3 space-y-2">
+
+                <!-- Mobile Login -->
+                <button id="mobileLoginBtn"
+                    class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Sign In / Login
+                </button>
+
+                <!-- Mobile User Actions -->
+                <div id="mobileUserActions" class="hidden space-y-2">
+                    <button id="mobileAdminBtn"
+                        class="hidden w-full inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        Admin Dashboard
+                    </button>
+
+                    <button id="mobileLogoutBtn"
+                        class="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-100 transition">
+                        <i class="fa-solid fa-power-off"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</header>
 
     <main>
         <!-- Hero Section -->
@@ -729,5 +837,58 @@
 
     <script src="app.js"></script>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    const userNavBadge = document.getElementById('userNavBadge');
+    const userNavDropdown = document.getElementById('userNavDropdown');
+
+    // Mobile toggle
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.addEventListener('click', function () {
+            navMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.add('hidden');
+            });
+        });
+    }
+
+    // Desktop user dropdown
+    if (userNavBadge && userNavDropdown) {
+        userNavBadge.addEventListener('click', function (e) {
+            e.stopPropagation();
+            userNavDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function () {
+            userNavDropdown.classList.add('hidden');
+        });
+    }
+
+    // Mobile buttons use existing handlers
+    const loginModalTrigger = document.getElementById('loginModalTrigger');
+    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+    if (mobileLoginBtn && loginModalTrigger) {
+        mobileLoginBtn.addEventListener('click', () => loginModalTrigger.click());
+    }
+
+    const userLogoutBtn = document.getElementById('userLogoutBtn');
+    const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+    if (mobileLogoutBtn && userLogoutBtn) {
+        mobileLogoutBtn.addEventListener('click', () => userLogoutBtn.click());
+    }
+
+    const adminDashTrigger = document.getElementById('adminDashTrigger');
+    const mobileAdminBtn = document.getElementById('mobileAdminBtn');
+    if (mobileAdminBtn && adminDashTrigger) {
+        mobileAdminBtn.addEventListener('click', () => adminDashTrigger.click());
+    }
+});
+</script>
 
 </html>
