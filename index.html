@@ -76,13 +76,7 @@
                 preflight: false,
             }
         }
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-        });
-
+       
     </script>
 
     <link rel="stylesheet" href="styles.css">
@@ -812,5 +806,24 @@
 
     <script src="app.js"></script>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.addEventListener('click', function () {
+            navMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.add('hidden');
+            });
+        });
+    }
+});
+</script>
 
 </html>

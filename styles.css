@@ -1769,3 +1769,278 @@ h6 {
 
   
 }
+
+/* =========================================================
+   RESPONSIVE FIXES - ALL DEVICES
+   ========================================================= */
+
+/* Prevent horizontal scroll */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Images and media */
+img,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .container {
+        width: 92%;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-stats-grid {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .about-card-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .form-wrapper {
+        padding: 2.5rem 2rem;
+    }
+
+    .admin-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .admin-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-section {
+        padding: 6.5rem 0 3.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+        line-height: 1.15;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+    }
+
+    .stat-card {
+        padding: 1.1rem;
+        gap: 0.9rem;
+    }
+
+    .stat-value {
+        font-size: 1.45rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-img-wrap {
+        height: 200px;
+    }
+
+    .about-visual-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-visual-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .feature-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .form-wrapper {
+        padding: 2rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .col-span-2 {
+        grid-column: span 1;
+    }
+
+    .tracker-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box,
+    .filter-box {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .filter-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .complaints-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .complaint-card {
+        padding: 1.25rem;
+    }
+
+    .card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .timeline-steps {
+        gap: 0.25rem;
+    }
+
+    .timeline-steps::before {
+        left: 8%;
+        width: 84%;
+    }
+
+    .step-text {
+        font-size: 0.62rem;
+    }
+
+    .modal-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 18px;
+    }
+
+    .modal-lg {
+        max-width: 100%;
+    }
+
+    .admin-panel-card {
+        padding: 1.25rem;
+    }
+
+    .admin-panel-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-filters {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .admin-filters .search-box,
+    .admin-filters select {
+        width: 100%;
+    }
+
+    .admin-table {
+        min-width: 720px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+    }
+
+    .hero-title {
+        font-size: 1.95rem;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+    .btn,
+    .btn-lg {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .visual-badges {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-card-body {
+        padding: 1.25rem;
+    }
+
+    .complaint-id {
+        font-size: 1rem;
+    }
+
+    .step-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+    }
+
+    .step-text {
+        font-size: 0.58rem;
+    }
+}
